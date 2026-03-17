@@ -56,7 +56,7 @@ in
 		lldb
 
     # lsp szpont
-		libsForQt5.qt5.qtdeclarative
+		kdePackages.qtdeclarative
     bash-language-server
     clang-tools
     superhtml
