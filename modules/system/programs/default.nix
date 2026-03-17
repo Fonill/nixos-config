@@ -116,6 +116,7 @@ in
     screenfetch
     fastfetch
     nerdfetch
+		linux-wallpaperengine
 
     # better msoffice (no epstein island here)
     libreoffice-qt6-fresh
@@ -152,7 +153,6 @@ in
     gimp
     krita
     blender
-    # jetbrains.idea
     obs-studio
     ffmpeg
     lorien
