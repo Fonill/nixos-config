@@ -126,6 +126,8 @@ return {
 			-- CSS
 			cssls = {},
 
+			qmlls = {},
+
 			-- Hyprland
 			hyprls = {},
 

@@ -31,6 +31,8 @@ in
       recursive = true;
     };
 
+		"quickshell/shell.qml".source = link "quickshell/${hostname}/shell.qml";
+
     "waybar" = {
       source = ./waybar/shared;
       recursive = true;
