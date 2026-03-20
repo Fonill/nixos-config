@@ -4,7 +4,7 @@
   hardware = {
     bluetooth = {
       enable = true;
-      powerOnBoot = true;
+      powerOnBoot = false; 
     };
 
     graphics = {
@@ -15,31 +15,31 @@
     nvidia = {
       modesetting.enable = true;
 
-			package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
 
       powerManagement = {
-        enable = false;
-        finegrained = false;
+        enable = true; 
+        finegrained = true; 
       };
 
       open = true;
       nvidiaSettings = false;
 
-			prime = {
-				offload = {
-					enable = true;
-					enableOffloadCmd = true;
-				};
+      prime = {
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
 
-				intelBusId = "PCI:0:2:0";
-				nvidiaBusId = "PCI:1:0:0";
-			};
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
     };
 
     opentabletdriver.enable = true;
     uinput.enable = true;
   };
 
-	services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
 
 }
