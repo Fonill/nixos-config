@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 
 {
   hardware = {
@@ -10,6 +10,12 @@
     graphics = {
       enable = true;
       enable32Bit = true;
+			extraPackages = with pkgs; [
+				vpl-gpu-rt # Intel VPL
+				vulkan-loader
+				vulkan-validation-layers
+				vulkan-extension-layer
+			];
     };
 
     nvidia = {
