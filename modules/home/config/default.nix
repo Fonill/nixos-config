@@ -16,7 +16,7 @@ in
 
   xdg.configFile = {
     "kitty" = {
-      source = ./kitty;
+      source = ./kitty/shared;
       recursive = true;
     };
 		"kitty/kitty.conf".source = link "kitty/${hostname}/kitty.conf";

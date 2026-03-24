@@ -12,6 +12,9 @@ opacity = 0.99
 # Bold and Italic are automatically inferred just like in Kitty.
 size = 13.0
 
+[scrolling]
+history = 10000
+
 [cursor]
 # Translated from cursor_shape block
 style = { shape = "Block", blinking = "Off" }
