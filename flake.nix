@@ -14,15 +14,19 @@
 
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
 
-		nixpkgs-very-unstable.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable";
-
+    nixpkgs-very-unstable.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable";
   };
 
   outputs =
     { self, nixpkgs, ... }@inputs:
     let
       flake-dir = "/etc/nixos";
-			pkgs-very-unstable = inputs.nixpkgs-very-unstable.legacyPackages.x86_64-linux;
+      system = "x86_64-linux";
+
+      pkgs-very-unstable = import inputs.nixpkgs-very-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations = {
@@ -49,7 +53,6 @@
             inputs.stylix.nixosModules.stylix
           ];
         };
-
       };
     };
 }
