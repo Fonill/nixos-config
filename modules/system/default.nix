@@ -7,7 +7,7 @@
     ./users.nix
     ./system.nix
     ./services.nix
-    ./networking.nix
+    ./network/networking.nix
 		./virtualization.nix
 		./stylix.nix
     ./programs
