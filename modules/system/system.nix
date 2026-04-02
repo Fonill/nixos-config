@@ -15,7 +15,10 @@
     };
 
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
 
   };
@@ -27,33 +30,33 @@
 
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
-			GDK_DEBUG="portals";
-			GDK_USE_PORTAL="1";
+      GDK_DEBUG = "portals";
+      GDK_USE_PORTAL = "1";
     };
 
     shellAliases = {
-			tree = "eza -T";
+      tree = "eza -T";
       nix-shell = "nix-shell --command $SHELL ";
       nd = "nix develop -c $SHELL";
-      ls="eza --icons";
-      v="nixCats";
-      n="nvim";
-      l="nixCats";
-      nvim="nvim";
-      lvim="nixCats";
-      cy="cd ~/studia; yazi";
-      cs="cd ~/studia";
-      ncfg="nvim /etc/nixos/modules/system/programs/default.nix";
-      kcfg="nvim ~/.config/kitty/kitty.conf";
-      nixorg="firefox https://search.nixos.org/packages";
-      pogoda="curl wttr.in/Gdansk"; #:)
-      reb="sudo nixos-rebuild switch";
-      con="rclone mount Fonil:studia ~/cloud --vfs-cache-mode full &";
-      discon="fusermount -u ~/cloud";
-      calen="calcurse";
-      cal="cal -n 12";
-			o="poweroff";
-			ghgrab="nix run github:abhixdd/ghgrab";
+      ls = "eza --icons";
+      v = "nixCats";
+      n = "nvim";
+      l = "nixCats";
+      nvim = "nvim";
+      lvim = "nixCats";
+      cy = "cd ~/studia; yazi";
+      cs = "cd ~/studia";
+      ncfg = "nvim /etc/nixos/modules/system/programs/default.nix";
+      kcfg = "nvim ~/.config/kitty/kitty.conf";
+      nixorg = "firefox https://search.nixos.org/packages";
+      pogoda = "curl wttr.in/Gdansk"; # :)
+      reb = "sudo nixos-rebuild switch";
+      con = "rclone mount Fonil:studia ~/cloud --vfs-cache-mode full &";
+      discon = "fusermount -u ~/cloud";
+      calen = "calcurse";
+      cal = "cal -n 12";
+      o = "poweroff";
+      ghgrab = "nix run github:abhixdd/ghgrab";
     };
   };
 

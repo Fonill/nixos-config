@@ -1,14 +1,14 @@
 { inputs, flake-dir, hostname, ... }:
 
 {
-  imports = [ 
+  imports = [
     ../../modules/system
-		./hardware
+    ./hardware
     inputs.home-manager.nixosModules.default
   ];
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs flake-dir hostname;};
+    extraSpecialArgs = { inherit inputs flake-dir hostname; };
     users.fonil = import ../../modules/home;
   };
 }

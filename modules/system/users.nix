@@ -6,7 +6,11 @@
       shell = pkgs.zsh;
       isNormalUser = true;
       description = "Fonil";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd"];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "libvirtd"
+      ];
     };
 
   };
