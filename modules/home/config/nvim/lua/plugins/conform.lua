@@ -21,7 +21,7 @@ return {
 			c = { "clang_format" },
 			cpp = { "clang_format" },
 			css = { "prettierd", stop_after_first = true },
-			html = { "prettierd", stop_after_first = true },
+			html = { "superhtml", stop_after_first = true },
 			json = { "prettierd", stop_after_first = true },
 			java = { "google-java-format" },
 			php = { "phpcbf" },
