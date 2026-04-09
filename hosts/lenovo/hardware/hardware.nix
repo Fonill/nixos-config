@@ -24,10 +24,10 @@
       package = config.boot.kernelPackages.nvidiaPackages.stable;
 
       powerManagement = {
-        # enable = false;
+        enable = false;
         finegrained = false;
 
-        enable = true;
+        # enable = true;
         # finegrained = true;
       };
 
