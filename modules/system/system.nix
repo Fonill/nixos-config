@@ -92,6 +92,8 @@
       "video/webm" = "firefox.desktop";
       "audio/mpeg" = "firefox.desktop";
       "audio/ogg" = "firefox.desktop";
+
+			"image/heic" = "firefox.desktop";
     };
   };
 
