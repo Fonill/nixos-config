@@ -135,6 +135,7 @@ in
       eza
       heroic-unwrapped
       networkmanagerapplet
+			loupe
 
       steam
       ckan
