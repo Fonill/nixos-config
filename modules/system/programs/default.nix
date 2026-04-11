@@ -154,6 +154,9 @@ in
       # valgrind
       # adwaita-icon-theme
 
+      # absolute goat best editor to this day
+      neovim
+
     ])
     ++ (with pkgs-very-unstable; [
 
@@ -194,8 +197,6 @@ in
       # szpont pro max ++++
       gemini-cli
 
-      # absolute goat best editor to this day
-      neovim
 
       # terminal
       ghostty

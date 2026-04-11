@@ -48,7 +48,6 @@
       ncfg = "nvim /etc/nixos/modules/system/programs/default.nix";
       kcfg = "nvim ~/.config/kitty/kitty.conf";
       nixorg = "firefox https://search.nixos.org/packages";
-      # pogoda = "curl wttr.in/Gdansk";
       reb = "sudo nixos-rebuild switch";
       calen = "calcurse";
       cal = "cal -n 12";
