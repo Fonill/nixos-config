@@ -206,6 +206,7 @@ in
       lorien
 
 			zenity
+			air
 
     ]);
 
