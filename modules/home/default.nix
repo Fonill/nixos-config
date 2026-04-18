@@ -31,7 +31,7 @@
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
+      # xdg-desktop-portal-gtk
       xdg-desktop-portal-termfilechooser
       xdg-desktop-portal-hyprland
     ];
@@ -41,7 +41,7 @@
       hyprland = {
         default = [
           "hyprland"
-          "gtk"
+          # "gtk"
         ];
       };
     };
