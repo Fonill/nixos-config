@@ -1,27 +1,49 @@
 return {
-	"nvim-treesitter/nvim-treesitter",
-	lazy = false,
+	'nvim-treesitter/nvim-treesitter',
 	build = ":TSUpdate",
-	opts = {
-		highlight = {
-			enable = true,
-			additional_vim_regex_highlighting = { "ruby" },
-		},
-		indent = { enable = true, disable = { "ruby" } },
-	},
+	branch = 'main',
+	lazy = false,
 	config = function(_, opts)
-		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+		---@param buf integer
+		---@param language string
+		local function treesitter_try_attach(buf, language)
+			-- check if parser exists and load it
+			if not vim.treesitter.language.add(language) then
+				return false
+			end
+			-- enables syntax highlighting and other treesitter features
+			vim.treesitter.start(buf, language)
 
-		-- Prefer git instead of curl in order to improve connectivity in some environments
-		require("nvim-treesitter.install").prefer_git = true
-		---@diagnostic disable-next-line: missing-fields
-		require("nvim-treesitter.configs").setup(opts)
+			-- enables treesitter based folds
+			vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+			vim.wo.foldmethod = "expr"
+			-- ensure folds are open to begin with
+			vim.o.foldlevel = 99
 
-		-- There are additional nvim-treesitter modules that you can use to interact
-		-- with nvim-treesitter. You should go explore a few and see what interests you:
-		--
-		--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-		--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-		--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+			-- enables treesitter based indentation
+			vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+			return true
+		end
+
+		local installable_parsers = require("nvim-treesitter").get_available()
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function(args)
+				local buf, filetype = args.buf, args.match
+				local language = vim.treesitter.language.get_lang(filetype)
+				if not language then
+					return
+				end
+
+				if not treesitter_try_attach(buf,language) then
+					if vim.tbl_contains(installable_parsers, language) then
+						-- not already installed, so try to install them via nvim-treesitter if possible
+						require("nvim-treesitter").install(language):await(function()
+							treesitter_try_attach(buf, language)
+						end)
+					end
+				end
+			end,
+		})
 	end,
 }

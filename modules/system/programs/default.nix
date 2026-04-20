@@ -18,7 +18,7 @@ in
     ./yazi
     ./starship.nix
     ./java.nix
-		./gen-shell-script.nix
+    ./gen-shell-script.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -26,8 +26,8 @@ in
   environment.systemPackages =
     (with pkgs; [
 
-			ngrok
-			sqlite
+      ngrok
+      sqlite
 
       mpv
 
@@ -139,7 +139,7 @@ in
       eza
       heroic-unwrapped
       networkmanagerapplet
-			loupe
+      loupe
 
       steam
       ckan
@@ -158,16 +158,16 @@ in
       # valgrind
       # adwaita-icon-theme
 
-      # absolute goat best editor to this day
-      neovim
-
     ])
     ++ (with pkgs-very-unstable; [
 
-			google-lighthouse
+      # absolute goat best editor to this day
+      neovim
+
+      google-lighthouse
 
       # lsp szpont
-			htmx-lsp2
+      htmx-lsp2
       typescript-language-server
       bash-language-server
       clang-tools
@@ -201,7 +201,6 @@ in
       # szpont pro max ++++
       gemini-cli
 
-
       # terminal
       ghostty
       alacritty
@@ -209,8 +208,8 @@ in
 
       lorien
 
-			zenity
-			air
+      zenity
+      air
 
     ]);
 
