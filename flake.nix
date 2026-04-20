@@ -12,13 +12,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
 
     nixpkgs-very-unstable.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable";
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    { nixpkgs, nur, ... }@inputs:
     let
       flake-dir = "/etc/nixos";
       system = "x86_64-linux";
@@ -27,12 +32,15 @@
         inherit system;
         config.allowUnfree = true;
       };
+
+			nurpkgs = nur.legacyPackages.${system};
+
     in
     {
       nixosConfigurations = {
         acer = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs flake-dir pkgs-very-unstable;
+            inherit inputs flake-dir pkgs-very-unstable nurpkgs;
             hostname = "acer";
           };
           modules = [
@@ -44,7 +52,7 @@
 
         lenovo = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs flake-dir pkgs-very-unstable;
+            inherit inputs flake-dir pkgs-very-unstable nurpkgs;
             hostname = "lenovo";
           };
           modules = [
