@@ -1,17 +1,10 @@
-{ pkgs, pkgs-very-unstable, nurpkgs, ... }:
-let
-  chrome = pkgs.google-chrome.override {
-    commandLineArgs = [
-      "--disable-features=WaylandWpColorManagerV1"
-    ];
-  };
+{
+  pkgs,
+  pkgs-very-unstable,
+  nurpkgs,
+  ...
+}:
 
-  brave = pkgs.brave.override {
-    commandLineArgs = [
-      "--disable-features=WaylandWpColorManagerV1"
-    ];
-  };
-in
 {
   imports = [
     ./zsh.nix
@@ -26,7 +19,7 @@ in
   environment.systemPackages =
     (with pkgs; [
 
-			nurpkgs.repos.lonerOrz.helium
+      nurpkgs.repos.lonerOrz.helium
 
       ngrok
       sqlite
@@ -74,7 +67,7 @@ in
       dragon-drop
 
       # browsers
-      chrome
+			google-chrome
       brave
 
       # calendar
@@ -221,6 +214,22 @@ in
     hyprland = {
       enable = true;
       xwayland.enable = true;
+    };
+
+    chromium = {
+      enable = true;
+
+      extensions = [
+        "eimadpbcbfnmbkopoojfekhnkhdbieeh;https://clients2.google.com/service/update2/crx" # Dark Reader
+        "dbepggeogbaibhgnhhndojpepiihcmeb;https://clients2.google.com/service/update2/crx" # Vimium
+				"blipmdconlkpinefehnmjammfjpmpbjk;https://clients2.google.com/service/update2/crx" # Lighthouse
+				"nngceckbapebfimnlniiiahkandclblb;https://clients2.google.com/service/update2/crx" # Bitwarden
+				"nkphlkgkhmdaecflflapohlkkchmcacc;https://clients2.google.com/service/update2/crx" # Save for later
+				"mnjggcdmjocbbbhaepdhchncahnbgone;https://clients2.google.com/service/update2/crx" # SponsorBlock
+				"oldceeleldhonbafppcapldpdifcinji;https://clients2.google.com/service/update2/crx" # AI Grammar checker
+				"gebbhagfogifgggkldgodflihgfeippi;https://clients2.google.com/service/update2/crx" # Dislikes
+
+      ];
     };
 
     firefox = {
