@@ -1,5 +1,5 @@
 {
-  description = "NixOS config flake";
+  description = "NixOS and macOS friendly config flake";
 
   inputs = {
     stylix = {
@@ -17,30 +17,44 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
 
     nixpkgs-very-unstable.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable";
   };
 
   outputs =
-    { nixpkgs, nur, ... }@inputs:
+    { nixpkgs, nur, nix-darwin, ... }@inputs:
     let
-      flake-dir = "/etc/nixos";
-      system = "x86_64-linux";
+      flake-dir = "/etc/nixos"; # TODO chage later
+      linuxSystem = "x86_64-linux";
+      darwinSystem = "aarch64-darwin";
 
-      pkgs-very-unstable = import inputs.nixpkgs-very-unstable {
-        inherit system;
+      pkgs-very-unstable-linux = import inputs.nixpkgs-very-unstable {
+        system = linuxSystem;
         config.allowUnfree = true;
       };
+      nurpkgs-linux = nur.legacyPackages.${linuxSystem};
 
-			nurpkgs = nur.legacyPackages.${system};
+      pkgs-very-unstable-darwin = import inputs.nixpkgs-very-unstable {
+        system = darwinSystem;
+        config.allowUnfree = true;
+      };
+      nurpkgs-darwin = nur.legacyPackages.${darwinSystem};
 
     in
     {
       nixosConfigurations = {
         acer = nixpkgs.lib.nixosSystem {
+          system = linuxSystem;
           specialArgs = {
-            inherit inputs flake-dir pkgs-very-unstable nurpkgs;
+            inherit inputs flake-dir;
+            pkgs-very-unstable = pkgs-very-unstable-linux;
+            nurpkgs = nurpkgs-linux;
             hostname = "acer";
           };
           modules = [
@@ -51,14 +65,35 @@
         };
 
         lenovo = nixpkgs.lib.nixosSystem {
+          system = linuxSystem;
           specialArgs = {
-            inherit inputs flake-dir pkgs-very-unstable nurpkgs;
+            inherit inputs flake-dir;
+            pkgs-very-unstable = pkgs-very-unstable-linux;
+            nurpkgs = nurpkgs-linux;
             hostname = "lenovo";
           };
           modules = [
             ./hosts/lenovo/configuration.nix
             inputs.home-manager.nixosModules.default
             inputs.stylix.nixosModules.stylix
+          ];
+        };
+
+      };
+
+			darwinConfigurations = {
+        macos = nix-darwin.lib.darwinSystem {
+          system = darwinSystem;
+          specialArgs = {
+            inherit inputs flake-dir;
+            pkgs-very-unstable = pkgs-very-unstable-darwin;
+            nurpkgs = nurpkgs-darwin;
+            hostname = "macbook";
+          };
+          modules = [
+            ./hosts/macos/configuration.nix
+            inputs.home-manager.darwinModules.default
+            inputs.stylix.darwinModules.stylix
           ];
         };
       };
