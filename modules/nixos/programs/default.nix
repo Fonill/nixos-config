@@ -19,7 +19,6 @@
   environment.systemPackages =
     (with pkgs; [
 
-
       ngrok
       sqlite
 
@@ -199,8 +198,9 @@
 
       lorien
 
-			# cli to gui
+      # cli to gui
       zenity
+      poppler-utils
 
     ]);
 

@@ -44,7 +44,7 @@
       nvim = "nvim";
       cy = "cd ~/studia; yazi";
       cs = "cd ~/studia";
-      ncfg = "nvim /etc/nixos/modules/system/programs/default.nix";
+      ncfg = "nvim /etc/nixos/modules/nixos/programs/default.nix";
       kcfg = "nvim ~/.config/kitty/kitty.conf";
       reb = "sudo nixos-rebuild switch";
       calen = "calcurse";
