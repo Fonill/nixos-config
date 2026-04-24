@@ -134,7 +134,6 @@
       networkmanagerapplet
       loupe
 
-      steam
       ckan
 
       # nix shell shit
@@ -206,6 +205,7 @@
 
   programs = {
     zoxide.enable = true;
+		steam.enable = true;
 
     hyprland = {
       enable = true;
