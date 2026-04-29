@@ -114,7 +114,6 @@
 
       # apps
       obsidian
-      bitwarden-desktop
       feh
       libqalculate
       p7zip
@@ -151,6 +150,7 @@
 
       # absolute goat best editor to this day
       neovim
+			zed
 
       google-lighthouse
 
@@ -200,6 +200,9 @@
       # cli to gui
       zenity
       poppler-utils
+
+      bitwarden-desktop
+			# bitwarden-cli
 
     ]);
 

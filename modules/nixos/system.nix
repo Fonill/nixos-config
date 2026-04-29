@@ -78,6 +78,7 @@
       "image/heif" = "org.gnome.Loupe.desktop";
       "image/heic-sequence" = "org.gnome.Loupe.desktop";
       "image/heif-sequence" = "org.gnome.Loupe.desktop";
+			"image/bmp" = "org.gnome.Loupe.desktop";
 
       # Media (VLC Media Player)
       "video/mp4" = "vlc.desktop";
