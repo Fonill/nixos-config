@@ -150,7 +150,7 @@
 
       # absolute goat best editor to this day
       neovim
-			zed
+      zed-editor
 
       google-lighthouse
 
@@ -202,13 +202,13 @@
       poppler-utils
 
       bitwarden-desktop
-			# bitwarden-cli
+      # bitwarden-cli
 
     ]);
 
   programs = {
     zoxide.enable = true;
-		steam.enable = true;
+    steam.enable = true;
 
     hyprland = {
       enable = true;
