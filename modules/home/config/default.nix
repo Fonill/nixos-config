@@ -1,4 +1,4 @@
-{ pkgs,... }:
+{ pkgs, ... }:
 let
   treesitter-parsers = pkgs.symlinkJoin {
     name = "treesitter-parsers";
@@ -33,22 +33,31 @@ in
       recursive = true;
     };
 
-		"nvim/init.lua" = {
-			text = ''
-				require("options")
-				require("keymaps")
-				require("lazy-nvim")
-				-- Add Treesitter Plugin Path
-				vim.opt.runtimepath:append("${pkgs.vimPlugins.nvim-treesitter}")
-				-- Add Treesitter Parsers Path
-				vim.opt.runtimepath:append("${treesitter-parsers}")
-			'';
+    "vesktop" = {
+      source = ./vesktop;
+      recursive = true;
+    };
+
+		"btop" = {
+			source = ./btop;
+			recursive = true;
 		};
 
-		"nvim/lazy-lock.json" = {
-			source = ./nvim/lazy-lock.json;
-		};
+    "nvim/init.lua" = {
+      text = ''
+        				require("options")
+        				require("keymaps")
+        				require("lazy-nvim")
+        				-- Add Treesitter Plugin Path
+        				vim.opt.runtimepath:append("${pkgs.vimPlugins.nvim-treesitter}")
+        				-- Add Treesitter Parsers Path
+        				vim.opt.runtimepath:append("${treesitter-parsers}")
+        			'';
+    };
 
+    "nvim/lazy-lock.json" = {
+      source = ./nvim/lazy-lock.json;
+    };
 
   };
 }

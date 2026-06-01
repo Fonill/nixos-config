@@ -132,7 +132,7 @@ in
     lorien
     kitty
     spotify
-    discord
+    # discord
     vesktop
     zsh
     btop
