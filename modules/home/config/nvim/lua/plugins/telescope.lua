@@ -12,6 +12,7 @@ return {
     local builtin = require("telescope.builtin")
     map("n", "<leader>ff", builtin.find_files, {desc = "find files"})
     map("n", "<leader>fw", builtin.live_grep, {desc = "live grep"})
+		map("n", "<leader>fs", builtin.lsp_document_symbols, { desc = '[F]ind [S]zpont' })
     require("telescope").setup({
       extensions = {
         ["ui-select"] = require("telescope.themes").get_dropdown(),
