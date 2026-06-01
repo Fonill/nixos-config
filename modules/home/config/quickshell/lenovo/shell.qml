@@ -22,7 +22,7 @@ ShellRoot {
     property color wbGreen: "#98bb6c"     // green
     property color wbBlue: "#7e9cd8"      // blue
     property color wbCrit: "#d27e99"      // flamingo (for critical states)
-    property color wbYellow: "#dca561"    // yellow
+		property color wbYellow: "#dca561"    // yellow
 
     // Font
     property string fontFamily: "MesloLGS Nerd Font Mono Bold"
@@ -50,28 +50,29 @@ ShellRoot {
         command: ["sh", "-c", "head -1 /proc/stat"]
         stdout: SplitParser {
             onRead: data => {
-                if (!data) return
-                var parts = data.trim().split(/\s+/)
-                var user = parseInt(parts[1]) || 0
-                var nice = parseInt(parts[2]) || 0
-                var system = parseInt(parts[3]) || 0
-                var idle = parseInt(parts[4]) || 0
-                var iowait = parseInt(parts[5]) || 0
-                var irq = parseInt(parts[6]) || 0
-                var softirq = parseInt(parts[7]) || 0
+                if (!data)
+                    return;
+                var parts = data.trim().split(/\s+/);
+                var user = parseInt(parts[1]) || 0;
+                var nice = parseInt(parts[2]) || 0;
+                var system = parseInt(parts[3]) || 0;
+                var idle = parseInt(parts[4]) || 0;
+                var iowait = parseInt(parts[5]) || 0;
+                var irq = parseInt(parts[6]) || 0;
+                var softirq = parseInt(parts[7]) || 0;
 
-                var total = user + nice + system + idle + iowait + irq + softirq
-                var idleTime = idle + iowait
+                var total = user + nice + system + idle + iowait + irq + softirq;
+                var idleTime = idle + iowait;
 
                 if (lastCpuTotal > 0) {
-                    var totalDiff = total - lastCpuTotal
-                    var idleDiff = idleTime - lastCpuIdle
+                    var totalDiff = total - lastCpuTotal;
+                    var idleDiff = idleTime - lastCpuIdle;
                     if (totalDiff > 0) {
-                        cpuUsage = Math.round(100 * (totalDiff - idleDiff) / totalDiff)
+                        cpuUsage = Math.round(100 * (totalDiff - idleDiff) / totalDiff);
                     }
                 }
-                lastCpuTotal = total
-                lastCpuIdle = idleTime
+                lastCpuTotal = total;
+                lastCpuIdle = idleTime;
             }
         }
         Component.onCompleted: running = true
@@ -83,7 +84,8 @@ ShellRoot {
         command: ["sh", "-c", "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits || echo 0"]
         stdout: SplitParser {
             onRead: data => {
-                if (data) gpuUsage = data.trim()
+                if (data)
+                    gpuUsage = data.trim();
             }
         }
         Component.onCompleted: running = true
@@ -95,11 +97,12 @@ ShellRoot {
         command: ["sh", "-c", "echo $(cat /sys/class/power_supply/BAT*/capacity | head -1) $(cat /sys/class/power_supply/BAT*/status | head -1)"]
         stdout: SplitParser {
             onRead: data => {
-                if (!data) return
-                var parts = data.trim().split(/\s+/)
+                if (!data)
+                    return;
+                var parts = data.trim().split(/\s+/);
                 if (parts.length >= 2) {
-                    batteryCapacity = parseInt(parts[0]) || 0
-                    batteryStatus = parts[1]
+                    batteryCapacity = parseInt(parts[0]) || 0;
+                    batteryStatus = parts[1];
                 }
             }
         }
@@ -113,15 +116,15 @@ ShellRoot {
         stdout: SplitParser {
             onRead: data => {
                 if (data) {
-                    var parts = data.trim().split(':')
+                    var parts = data.trim().split(':');
                     if (parts.length >= 3) {
-                        networkType = parts[0]
+                        networkType = parts[0];
                         // slice and join fixes issues if your SSID happens to contain a colon
-                        networkEssid = parts.slice(2).join(':') 
+                        networkEssid = parts.slice(2).join(':');
                     }
                 } else {
-                    networkType = "none"
-                    networkEssid = "Disconnected"
+                    networkType = "none";
+                    networkEssid = "Disconnected";
                 }
             }
         }
@@ -134,11 +137,12 @@ ShellRoot {
         command: ["wpctl", "get-volume", "@DEFAULT_AUDIO_SINK@"]
         stdout: SplitParser {
             onRead: data => {
-                if (!data) return
-                isMuted = data.indexOf("[MUTED]") !== -1
-                var match = data.match(/Volume:\s*([\d.]+)/)
+                if (!data)
+                    return;
+                isMuted = data.indexOf("[MUTED]") !== -1;
+                var match = data.match(/Volume:\s*([\d.]+)/);
                 if (match) {
-                    volumeLevel = Math.round(parseFloat(match[1]) * 100)
+                    volumeLevel = Math.round(parseFloat(match[1]) * 100);
                 }
             }
         }
@@ -151,10 +155,10 @@ ShellRoot {
         running: true
         repeat: true
         onTriggered: {
-            cpuProc.running = true
-            gpuProc.running = true
-            batProc.running = true
-            netProc.running = true
+            cpuProc.running = true;
+            gpuProc.running = true;
+            batProc.running = true;
+            netProc.running = true;
         }
     }
 
@@ -163,25 +167,33 @@ ShellRoot {
         running: true
         repeat: true
         onTriggered: {
-            volProc.running = true
+            volProc.running = true;
         }
     }
 
     // Helper Functions for Icons
     function getAudioIcon() {
-        if (isMuted || volumeLevel === 0) return "  "
-        if (volumeLevel < 33) return " "
-        if (volumeLevel < 66) return " "
-        return "  "
+        if (isMuted || volumeLevel === 0)
+            return "  ";
+        if (volumeLevel < 33)
+            return " ";
+        if (volumeLevel < 66)
+            return " ";
+        return "  ";
     }
 
     function getBatteryIcon() {
-        if (batteryStatus === "Charging" || batteryStatus === "Full") return " "
-        if (batteryCapacity > 80) return " "
-        if (batteryCapacity > 60) return " "
-        if (batteryCapacity > 40) return " "
-        if (batteryCapacity > 20) return " "
-        return " "
+        if (batteryStatus === "Charging" || batteryStatus === "Full")
+            return " ";
+        if (batteryCapacity > 80)
+            return " ";
+        if (batteryCapacity > 60)
+            return " ";
+        if (batteryCapacity > 40)
+            return " ";
+        if (batteryCapacity > 20)
+            return " ";
+        return " ";
     }
 
     Variants {

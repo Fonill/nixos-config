@@ -126,7 +126,10 @@ return {
 			-- CSS
 			cssls = {},
 
-			qmlls = {},
+			-- QML
+			qmlls = {
+				cmd = { "qmlls", "-E" },
+			},
 
 			-- Hyprland
 			hyprls = {},
