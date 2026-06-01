@@ -19,20 +19,6 @@
 			];
 		};
 
-		promptInit = /* bash */''
-
-      # Source the Powerlevel10k theme
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-
-      # Enable instant prompt (if desired)
-      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      fi
-
-      # Source your custom config (e.g., ~/.p10k.zsh)
-      [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-		'';
-
 		shellInit = /* bash */''
 			function y() {
 				local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd

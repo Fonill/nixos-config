@@ -16,12 +16,16 @@ in
   imports = [
     ./zsh.nix
     ./yazi
+		./starship.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
   
   environment.systemPackages = with pkgs; [
 
+		gparted
+
+		# treesitterszpont
 		vimPlugins.nvim-treesitter.withAllGrammars
 
 		# lsp szpont
