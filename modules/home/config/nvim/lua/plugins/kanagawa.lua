@@ -19,10 +19,8 @@ return {
 				theme = {
 					wave = {
 						ui = {
+							backdrop = 100,
 							bg_gutter = "none",
-							float = {
-								bg = "none",
-							},
 						},
 						syn = {
 							-- preproc = "#7E9CD8",
