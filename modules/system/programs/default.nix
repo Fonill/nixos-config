@@ -69,7 +69,6 @@ in
       # browsers
       chrome
       brave
-      vivaldi
 
       # calendar
       calcurse
