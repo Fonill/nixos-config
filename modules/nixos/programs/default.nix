@@ -38,7 +38,7 @@
       headsetcontrol
 
       # equalizers
-      easyeffects
+      # easyeffects
       jamesdsp
 
       libresprite
