@@ -4,18 +4,18 @@
   hardware = {
     bluetooth = {
       enable = true;
-      powerOnBoot = false; 
+      powerOnBoot = false;
     };
 
     graphics = {
       enable = true;
       enable32Bit = true;
-			extraPackages = with pkgs; [
-				vpl-gpu-rt # Intel VPL
-				vulkan-loader
-				vulkan-validation-layers
-				vulkan-extension-layer
-			];
+      extraPackages = with pkgs; [
+        vpl-gpu-rt
+        vulkan-loader
+        vulkan-validation-layers
+        vulkan-extension-layer
+      ];
     };
 
     nvidia = {
@@ -24,8 +24,8 @@
       package = config.boot.kernelPackages.nvidiaPackages.stable;
 
       powerManagement = {
-        enable = true; 
-        finegrained = true; 
+        enable = true;
+        finegrained = true;
       };
 
       open = true;
@@ -37,8 +37,8 @@
           enableOffloadCmd = true;
         };
 
-        intelBusId = "PCI:0:2:0";
-        nvidiaBusId = "PCI:1:0:0";
+        intelBusId = "PCI:0@0:2:0";
+        nvidiaBusId = "PCI:1@0:0:0";
       };
     };
 
@@ -46,6 +46,9 @@
     uinput.enable = true;
   };
 
-  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
 
 }

@@ -162,9 +162,10 @@ in
     obs-studio
     ffmpeg
     lorien
+		pkgs-very-unstable.ghostty
+		pkgs-very-unstable.alacritty
     kitty
     spotify
-		pkgs-very-unstable.vesktop
     discord
     zsh
     btop

@@ -19,12 +19,19 @@ in
       source = ./kitty;
       recursive = true;
     };
+		"kitty/kitty.conf".source = link "kitty/${hostname}/kitty.conf";
+
+		"alacritty" = {
+			source = ./alacritty;
+			recursive = true;
+		};
 
     "hypr" = {
       source = ./hypr/shared;
       recursive = true;
     };
     "hypr/hyprland.conf".source = link "hypr/${hostname}/hyprland.conf";
+    "hypr/hyprpaper.conf".source = link "hypr/${hostname}/hyprpaper.conf";
 
     "wofi" = {
       source = ./wofi;
