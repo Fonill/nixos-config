@@ -88,7 +88,7 @@
             inherit inputs flake-dir;
             pkgs-very-unstable = pkgs-very-unstable-darwin;
             nurpkgs = nurpkgs-darwin;
-            hostname = "macbook";
+            hostname = "nixbook";
           };
           modules = [
             ./hosts/macos/configuration.nix
