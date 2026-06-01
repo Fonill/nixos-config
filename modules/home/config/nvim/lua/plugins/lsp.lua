@@ -120,6 +120,9 @@ return {
 			-- HTML
 			superhtml = {},
 
+			-- Bash
+			bashls = {},
+
 			-- CSS
 			cssls = {},
 

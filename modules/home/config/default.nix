@@ -36,6 +36,7 @@ in
     "vesktop" = {
       source = ./vesktop;
       recursive = true;
+			force = true;
     };
 
     "xdg-desktop-portal-termfilechooser/config".source = ./xdg-desktop-portal-termfilechooser/config;

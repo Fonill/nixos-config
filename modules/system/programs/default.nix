@@ -23,6 +23,12 @@ in
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    vivify
+
+    figma-linux
+    filezilla
+
+    gcc
 
     # audio
     vlc
@@ -46,6 +52,7 @@ in
     vimPlugins.nvim-treesitter.withAllGrammars
 
     # lsp szpont
+    bash-language-server
     clang-tools
     superhtml
     vscode-css-languageserver
@@ -147,7 +154,7 @@ in
     lorien
     kitty
     spotify
-    # vesktop
+    vesktop
     discord
     zsh
     btop
