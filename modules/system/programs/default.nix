@@ -75,6 +75,7 @@ in
     ripgrep
 
     # formating
+		shfmt
     stylua
     rustfmt
     black

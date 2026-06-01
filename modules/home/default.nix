@@ -11,22 +11,22 @@
     stateVersion = "25.11";
     enableNixpkgsReleaseCheck = true;
 
-    # pointerCursor = {
-    #   enable = true;
-    #   hyprcursor = {
-    #     enable = true;
-    #     size = 24;
-    #   };
-    #   package = pkgs.kdePackages.breeze;
-    #   name = "breeze_cursors";
-    # };
+    pointerCursor = {
+      enable = true;
+      hyprcursor = {
+        enable = true;
+        size = 24;
+      };
+      package = pkgs.kdePackages.breeze;
+      name = "breeze_cursors";
+    };
   };
 
-  # gtk.cursorTheme = {
-  #   package = pkgs.kdePackages.breeze;
-  #   name = "breeze_cursors";
-  #   size = 24;
-  # };
+  gtk.cursorTheme = {
+    package = pkgs.kdePackages.breeze;
+    name = "breeze_cursors";
+    size = 24;
+  };
 
   xdg.portal = {
     enable = true;
