@@ -4,7 +4,8 @@
   powerManagement.enable = true;
 
   services = {
-    system76-scheduler.settings.cfsProfiles.enable = true;
+    system76-scheduler.enable = false;
+    # system76-scheduler.settings.cfsProfiles.enable = true;
 
     thermald.enable = true;
 
@@ -25,16 +26,13 @@
         CPU_SCALING_GOVERNOR_ON_AC = "performance";
         CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
-        SOUND_POWER_SAVE_ON_BAT = 1;
-        SOUND_POWER_SAVE_CONTROLLER = "Y";
-
         CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
         CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
 
         PLATFORM_PROFILE_ON_AC = "performance";
-        PLATFORM_PROFILE_ON_BAT = "low-power"; # balanced, performance, low-power
+        PLATFORM_PROFILE_ON_BAT = "low-power";
 
-        CPU_MIN_PERF_ON_AC = 0;
+        CPU_MIN_PERF_ON_AC = 10;
         CPU_MAX_PERF_ON_AC = 100;
         CPU_MIN_PERF_ON_BAT = 0;
         CPU_MAX_PERF_ON_BAT = 40;
@@ -42,5 +40,3 @@
     };
   };
 }
-
-#https://wiki.archlinux.org/title/Power_management
