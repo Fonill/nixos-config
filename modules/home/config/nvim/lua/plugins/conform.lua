@@ -26,7 +26,7 @@ return {
 			java = { "google-java-format" },
 			php = { "phpcbf" },
 			nix = { "nixfmt"},
-			bash = { "shfmt" },
+			sh = { "shfmt" },
 		},
 	},
 }
