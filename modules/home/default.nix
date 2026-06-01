@@ -27,4 +27,16 @@
     name = "breeze_cursors";
     size = 24;
   };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-termfilechooser
+      xdg-desktop-portal-hyprland
+    ];
+
+    config = {
+      common."org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
+    };
+  };
 }

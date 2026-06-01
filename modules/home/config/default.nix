@@ -38,6 +38,13 @@ in
       recursive = true;
     };
 
+    "xdg-desktop-portal-termfilechooser/config".source = ./xdg-desktop-portal-termfilechooser/config;
+    "xdg-desktop-portal-termfilechooser/yazi-wrapper.sh" = {
+      source = ./xdg-desktop-portal-termfilechooser/yazi-wrapper.sh;
+      executable = true;
+      force = true;
+    };
+
 		"btop" = {
 			source = ./btop;
 			recursive = true;
