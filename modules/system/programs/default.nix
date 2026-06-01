@@ -71,6 +71,10 @@ in
     ghidra
     cmatrix
     speedtest-cli
+    opencode
+
+		# signal
+		signal-desktop
 
     # szpont pro max +++
     screenfetch
