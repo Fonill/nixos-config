@@ -93,7 +93,11 @@
       "audio/mpeg" = "firefox.desktop";
       "audio/ogg" = "firefox.desktop";
 
-			"image/heic" = "firefox.desktop";
+      # HEIC Support
+      "image/heic" = "firefox.desktop";
+      "image/heif" = "firefox.desktop";
+      "image/heic-sequence" = "firefox.desktop";
+      "image/heif-sequence" = "firefox.desktop";
     };
   };
 
