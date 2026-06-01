@@ -1,21 +1,32 @@
 { ... }:
 
 {
-  powerManagement = {
-    enable = true;
-    powertop.enable = true;
-  };
+  # powerManagement = {
+  #   enable = true;
+  #   powertop.enable = true;
+  # };
+
+  powerManagement.enable = true;
 
   services = {
-    system76-scheduler.settings.cfsProfiles.enable = true;
+    system76-scheduler.enable = false;
+    # system76-scheduler.settings.cfsProfiles.enable = true;
+
+    thermald.enable = true;
+
+    power-profiles-daemon.enable = false;
 
     tlp = {
       enable = true;
       settings = {
-				CPU_BOOST_ON_AC = 1;
-				CPU_BOOST_ON_BAT = 0;
-				CPU_HWP_DYN_BOOST_ON_AC = 1;
-				CPU_HWP_DYN_BOOST_ON_BAT = 1;
+        USB_AUTOSUSPEND = 1;
+        WIFI_PWR_ON_BAT = "on";
+        RUNTIME_PM_ON_BAT = "auto";
+
+        CPU_BOOST_ON_AC = 1;
+        CPU_BOOST_ON_BAT = 0;
+        CPU_HWP_DYN_BOOST_ON_AC = 1;
+        CPU_HWP_DYN_BOOST_ON_BAT = 1;
 
         CPU_SCALING_GOVERNOR_ON_AC = "performance";
         CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
