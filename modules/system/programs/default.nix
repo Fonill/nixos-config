@@ -31,6 +31,7 @@ in
     filezilla
 
     gcc
+		go
 
     # audio
     vlc
@@ -57,35 +58,35 @@ in
 		lldb
 
     # lsp szpont
-		kdePackages.qtdeclarative
-    bash-language-server
-    clang-tools
-    superhtml
-    vscode-css-languageserver
-    nixd
-    hyprls
-    pyright
-    rust-analyzer
-    intelephense
-    markdown-oxide
-    jdt-language-server
-    nodePackages.nodejs
-    nodePackages.typescript
-    lua-language-server
-    gnumake
-    zig
-    ripgrep
+		pkgs-very-unstable.nodePackages.typescript-language-server
+    pkgs-very-unstable.bash-language-server
+    pkgs-very-unstable.clang-tools
+    pkgs-very-unstable.superhtml
+    pkgs-very-unstable.vscode-css-languageserver
+    pkgs-very-unstable.nixd
+    pkgs-very-unstable.hyprls
+    pkgs-very-unstable.pyright
+    pkgs-very-unstable.rust-analyzer
+    pkgs-very-unstable.intelephense
+    pkgs-very-unstable.markdown-oxide
+    pkgs-very-unstable.jdt-language-server
+    pkgs-very-unstable.nodePackages.nodejs
+    pkgs-very-unstable.nodePackages.typescript
+    pkgs-very-unstable.lua-language-server
+    pkgs-very-unstable.gnumake
+    pkgs-very-unstable.zig
+    pkgs-very-unstable.ripgrep
+    pkgs-very-unstable.gopls
 
     # formating
-		shfmt
-    stylua
-    rustfmt
-    black
-    prettierd
-    php85Packages.php-codesniffer
-    google-java-format
-    nixfmt
-    gopls
+		pkgs-very-unstable.shfmt
+    pkgs-very-unstable.stylua
+    pkgs-very-unstable.rustfmt
+    pkgs-very-unstable.black
+    pkgs-very-unstable.prettierd
+    pkgs-very-unstable.php85Packages.php-codesniffer
+    pkgs-very-unstable.google-java-format
+    pkgs-very-unstable.nixfmt
 
     # vpn
     wireguard-tools
@@ -143,7 +144,7 @@ in
     brightnessctl
 
     # absolute goat best editor to this day
-    neovim
+    pkgs-very-unstable.neovim
 
     # clipboard
     clipse
@@ -164,7 +165,7 @@ in
     lorien
 		pkgs-very-unstable.ghostty
 		pkgs-very-unstable.alacritty
-    kitty
+    pkgs-very-unstable.kitty
     spotify
     discord
     zsh
