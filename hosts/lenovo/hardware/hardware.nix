@@ -24,8 +24,11 @@
       package = config.boot.kernelPackages.nvidiaPackages.stable;
 
       powerManagement = {
-        enable = true;
-        finegrained = true;
+        enable = false;
+        finegrained = false;
+
+        # enable = true;
+        # finegrained = true;
       };
 
       open = true;
@@ -33,8 +36,11 @@
 
       prime = {
         offload = {
-          enable = true;
-          enableOffloadCmd = true;
+          enable = false;
+          enableOffloadCmd = false;
+
+          # enable = true;
+          # enableOffloadCmd = true;
         };
 
         intelBusId = "PCI:0@0:2:0";
