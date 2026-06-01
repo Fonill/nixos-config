@@ -18,6 +18,7 @@ in
     ./yazi
     ./starship.nix
     ./java.nix
+		./gen-shell-script.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
