@@ -63,7 +63,7 @@
 						{ on = "F"; run = "plugin jump-to-char"; desc = "Jump to char"; }
 
 						{ on = [ "R" "b" ]; run = "plugin recycle-bin"; desc = "Open Recycle Bin menu"; }
-						{ on = [ "R" "d" ]; run = "shell -- dragon-drop -x -i -T -a %s"; desc = "Drag file(s) with dragon"; }
+						{ on = [ "R" "d" ]; run = ''shell -- dragon-drop -x -i -T -a "$@"''; desc = "Drag file(s) with dragon"; }
 					];
 
 					prepend_keymap = [
