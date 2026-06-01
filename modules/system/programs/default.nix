@@ -164,7 +164,7 @@ in
     lorien
     kitty
     spotify
-    vesktop
+		pkgs-very-unstable.vesktop
     discord
     zsh
     btop
