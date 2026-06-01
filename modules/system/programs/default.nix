@@ -23,7 +23,6 @@ in
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-
     vivify
 
     figma-linux
@@ -165,8 +164,10 @@ in
     btop
     wget
     eza
-    steam
     heroic-unwrapped
+
+    steam
+		ckan
 
     # nix shell shit
     direnv
