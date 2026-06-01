@@ -23,13 +23,14 @@ in
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+
     # audio
     vlc
     headsetcontrol
 
-    # equalizer
-    easyeffects
-    # jamesdsp
+    # equalizers
+    # easyeffects
+    jamesdsp
 
     libresprite
     blockbench
@@ -146,8 +147,8 @@ in
     lorien
     kitty
     spotify
-    # discord
-    vesktop
+    # vesktop
+    discord
     zsh
     btop
     wget
@@ -199,6 +200,11 @@ in
         init.defaultBranch = "main";
         core.sshCommand = "ssh -i ~/.ssh/github";
       };
+    };
+
+    ssh = {
+      startAgent = true;
+      extraConfig = "AddKeysToAgent yes";
     };
 
   };
