@@ -58,6 +58,7 @@ button:hover {
 #clock,
 #battery,
 #cpu,
+#custom-gpu,
 #memory,
 #disk,
 #temperature,
@@ -73,6 +74,11 @@ button:hover {
   margin-right: 4px;
   padding-left: 4px;
   padding-right: 4px;
+}
+
+#custom-gpu {
+  color: @lavender;
+  border-bottom: 2px solid @lavender;
 }
 
 #cpu {
