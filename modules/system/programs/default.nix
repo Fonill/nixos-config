@@ -125,7 +125,6 @@ in
       blender
       obs-studio
       ffmpeg
-      lorien
       spotify
       discord
       whatsapp-electron
@@ -202,6 +201,8 @@ in
       ghostty
       alacritty
       kitty
+
+      lorien
 
     ]);
 
