@@ -235,8 +235,8 @@ in
       enable = true;
       config = {
         user = {
-          name = "Linofff";
-          email = "rowerman2137@gmail.com";
+          name = "Fonill";
+          email = "macieksobczak11@gmail.com";
         };
         init.defaultBranch = "main";
         core.sshCommand = "ssh -i ~/.ssh/github";
