@@ -22,178 +22,184 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [
-		mpv
+  environment.systemPackages =
+    (with pkgs; [
+      mpv
 
-    vivify
+      vivify
 
-    figma-linux
-    filezilla
+      figma-linux
+      filezilla
 
-    gcc
-		go
+      gcc
+      go
 
-    # audio
-    vlc
-    headsetcontrol
+      # audio
+      vlc
+      headsetcontrol
 
-    # equalizers
-    # easyeffects
-    jamesdsp
+      # equalizers
+      # easyeffects
+      jamesdsp
 
-    libresprite
-    blockbench
-    handbrake
+      libresprite
+      blockbench
+      handbrake
 
-    gparted
-    wineWowPackages.wayland
+      gparted
+      wineWowPackages.wayland
 
-    # nvim live server
-    live-server
+      # nvim live server
+      live-server
 
-    # treesitterszpont
-    vimPlugins.nvim-treesitter.withAllGrammars
+      # treesitterszpont
+      vimPlugins.nvim-treesitter.withAllGrammars
 
-		# debugger
-		lldb
+      # debugger
+      lldb
 
-    # lsp szpont
-		pkgs-very-unstable.nodePackages.typescript-language-server
-    pkgs-very-unstable.bash-language-server
-    pkgs-very-unstable.clang-tools
-    pkgs-very-unstable.superhtml
-    pkgs-very-unstable.vscode-css-languageserver
-    pkgs-very-unstable.nixd
-    pkgs-very-unstable.hyprls
-    pkgs-very-unstable.pyright
-    pkgs-very-unstable.rust-analyzer
-    pkgs-very-unstable.intelephense
-    pkgs-very-unstable.markdown-oxide
-    pkgs-very-unstable.jdt-language-server
-    pkgs-very-unstable.nodePackages.nodejs
-    pkgs-very-unstable.nodePackages.typescript
-    pkgs-very-unstable.lua-language-server
-    pkgs-very-unstable.gnumake
-    pkgs-very-unstable.zig
-    pkgs-very-unstable.ripgrep
-    pkgs-very-unstable.gopls
+      # vpn
+      wireguard-tools
 
-    # formating
-		pkgs-very-unstable.shfmt
-    pkgs-very-unstable.stylua
-    pkgs-very-unstable.rustfmt
-    pkgs-very-unstable.black
-    pkgs-very-unstable.prettierd
-    pkgs-very-unstable.php85Packages.php-codesniffer
-    pkgs-very-unstable.google-java-format
-    pkgs-very-unstable.nixfmt
+      # yazi
+      mediainfo
+      trash-cli
+      dragon-drop
 
-    # vpn
-    wireguard-tools
+      # browsers
+      chrome
+      brave
+      vivaldi
 
-    # yazi
-    mediainfo
-    trash-cli
-    dragon-drop
+      # calendar
+      calcurse
 
-    # browsers
-    chrome
-    brave
-    vivaldi
+      # szpont++
+      veracrypt
+      hashcat
+      hashcat-utils
+      ghidra
+      cmatrix
+      speedtest-cli
+      opencode
 
-    # calendar
-    calcurse
+      # signal
+      signal-desktop
 
-    # szpont++
-    veracrypt
-    hashcat
-    hashcat-utils
-    ghidra
-    cmatrix
-    speedtest-cli
-    opencode
+      # szpont pro max +++
+      screenfetch
+      fastfetch
+      nerdfetch
 
-    # signal
-    signal-desktop
+      # better msoffice (no epstein island here)
+      libreoffice-qt6-fresh
 
-    # szpont pro max +++
-    screenfetch
-    fastfetch
-    nerdfetch
+      # bluetooth type shit
+      bluez
 
-		# szpont pro max ++++
-		pkgs-very-unstable.gemini-cli
+      # hyprshit
+      hyprpaper
+      hyprsunset
+      hyprlock
+      hyprshade
+      hyprcursor
+      hyprshot
+      waybar
+      quickshell
+      wofi
+      stow
+      brightnessctl
 
-    # better msoffice (no epstein island here)
-    libreoffice-qt6-fresh
+      # clipboard
+      clipse
+      wl-clipboard
 
-    # bluetooth type shit
-    bluez
+      # apps
+      obsidian
+      # kdePackages.dolphin
+      bitwarden-desktop
+      feh
+      libqalculate
+      p7zip
+      gimp
+      krita
+      blender
+      obs-studio
+      ffmpeg
+      lorien
+      spotify
+      discord
+      whatsapp-electron
+      zsh
+      btop
+      wget
+      eza
+      heroic-unwrapped
+      networkmanagerapplet
 
-    # hyprshit
-    hyprpaper
-    hyprsunset
-    hyprlock
-    hyprshade
-    hyprcursor
-    hyprshot
-    waybar
-		quickshell
-    wofi
-    stow
-    brightnessctl
+      steam
+      ckan
 
-    # absolute goat best editor to this day
-    pkgs-very-unstable.neovim
+      # nix shell shit
+      direnv
+      nix-direnv
 
-    # clipboard
-    clipse
-    wl-clipboard
+      # minecraft
+      prismlauncher
+      gradle
 
-    # apps
-    obsidian
-    # kdePackages.dolphin
-    bitwarden-desktop
-    feh
-    libqalculate
-    p7zip
-    gimp
-    krita
-    blender
-    obs-studio
-    ffmpeg
-    lorien
-		pkgs-very-unstable.ghostty
-		pkgs-very-unstable.alacritty
-    pkgs-very-unstable.kitty
-    spotify
-    discord
-    zsh
-    btop
-    wget
-    eza
-    heroic-unwrapped
-		networkmanagerapplet
+      # abolute shitshow
+      # cloc
+      # teams-for-linux
+      # valgrind
+      # adwaita-icon-theme
 
-    steam
-		ckan
+    ])
+    ++ (with pkgs-very-unstable; [
 
-    # nix shell shit
-    direnv
-    nix-direnv
+      # lsp szpont
+      nodePackages.typescript-language-server
+      bash-language-server
+      clang-tools
+      superhtml
+      vscode-css-languageserver
+      nixd
+      hyprls
+      pyright
+      rust-analyzer
+      intelephense
+      markdown-oxide
+      jdt-language-server
+      nodePackages.nodejs
+      nodePackages.typescript
+      lua-language-server
+      gnumake
+      zig
+      ripgrep
+      gopls
 
-    # minecraft
-    prismlauncher
-    gradle
+      # formatting
+      shfmt
+      stylua
+      rustfmt
+      black
+      prettierd
+      php85Packages.php-codesniffer
+      google-java-format
+      nixfmt
 
-    # abolute shitshow
-    # cloc
-    # teams-for-linux
-    # valgrind
-    # adwaita-icon-theme
+      # szpont pro max ++++
+      gemini-cli
 
-  ];
+      # absolute goat best editor to this day
+      neovim
 
+      # terminal
+      ghostty
+      alacritty
+      kitty
+
+    ]);
 
   programs = {
     zoxide.enable = true;
