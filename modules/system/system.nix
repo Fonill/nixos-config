@@ -42,7 +42,6 @@
       ls = "eza --icons";
       n = "nvim";
       nvim = "nvim";
-      lvim = "nixCats";
       cy = "cd ~/studia; yazi";
       cs = "cd ~/studia";
       ncfg = "nvim /etc/nixos/modules/system/programs/default.nix";
