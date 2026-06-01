@@ -158,7 +158,8 @@ in
     ++ (with pkgs-very-unstable; [
 
       # lsp szpont
-      nodePackages.typescript-language-server
+      typescript-language-server
+      # nodePackages.typescript-language-server
       bash-language-server
       clang-tools
       superhtml
@@ -170,8 +171,10 @@ in
       intelephense
       markdown-oxide
       jdt-language-server
-      nodePackages.nodejs
-      nodePackages.typescript
+      nodejs
+      typescript
+      # nodePackages.nodejs
+      # nodePackages.typescript
       lua-language-server
       gnumake
       zig
