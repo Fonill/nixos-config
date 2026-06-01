@@ -26,6 +26,7 @@ return {
 			java = { "google-java-format" },
 			php = { "phpcbf" },
 			nix = { "nixfmt"},
+			markdown = { "prettierd", stop_after_first = true },
 			sh = { "shfmt" },
 		},
 	},
