@@ -1,8 +1,9 @@
 {
   "position": "top",
+	"height": 32,
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "pulseaudio", "battery", "cpu", "clock"],
+  // "modules-center": ["hyprland/window"],
+  "modules-right": ["network", "pulseaudio", "battery", "cpu", "custom/gpu", "clock"],
   
   "clock": {
     "format": "<span foreground='#d8616b'>   </span>{:%a %d %H:%M}",
@@ -14,6 +15,14 @@
     "format": "<span size='13000' foreground='#9c86bf'> </span> {usage:>3}%",
     "tooltip": false,
     "interval": 2
+  },
+
+  "custom/gpu": {
+    "min-length": 8,
+    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+    "format": "<span size='13000' foreground='#9c86bf'>󰢮 </span> {:>3}%",
+    "interval": 2,
+    "tooltip": false
   },
 
   "battery": {

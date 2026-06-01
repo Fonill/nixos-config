@@ -7,7 +7,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,18 +14,41 @@
 
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
 
+    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-25.11";
   };
 
   outputs =
     { self, nixpkgs, ... }@inputs:
+    let
+      flake-dir = "/etc/nixos";
+      pkgs-stable = inputs.nixpkgs-stable.legacyPackages.x86_64-linux;
+    in
     {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./configuration.nix
-          inputs.home-manager.nixosModules.default
-          inputs.stylix.nixosModules.stylix
-        ];
+      nixosConfigurations = {
+        acer = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs flake-dir pkgs-stable;
+            hostname = "acer";
+          };
+          modules = [
+            ./hosts/acer/configuration.nix
+            inputs.home-manager.nixosModules.default
+            inputs.stylix.nixosModules.stylix
+          ];
+        };
+
+        lenovo = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs flake-dir pkgs-stable;
+            hostname = "lenovo";
+          };
+          modules = [
+            ./hosts/lenovo/configuration.nix
+            inputs.home-manager.nixosModules.default
+            inputs.stylix.nixosModules.stylix
+          ];
+        };
+
       };
     };
 }

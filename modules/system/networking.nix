@@ -1,8 +1,8 @@
-{ ... }:
+{ hostname, ... }:
 
 {
   networking = {
-    hostName = "nixos";
+    hostName = hostname;
 
 		firewall = {
 			# allowedUDPPorts = [ 51820 ];

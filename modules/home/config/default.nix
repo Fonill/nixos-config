@@ -1,5 +1,12 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  config,
+  flake-dir,
+  hostname,
+  ...
+}:
 let
+  link = f: config.lib.file.mkOutOfStoreSymlink "${flake-dir}/modules/home/config/${f}";
   treesitter-parsers = pkgs.symlinkJoin {
     name = "treesitter-parsers";
     paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
@@ -14,9 +21,10 @@ in
     };
 
     "hypr" = {
-      source = ./hypr;
+      source = ./hypr/shared;
       recursive = true;
     };
+    "hypr/hyprland.conf".source = link "hypr/${hostname}/hyprland.conf";
 
     "wofi" = {
       source = ./wofi;
@@ -24,9 +32,10 @@ in
     };
 
     "waybar" = {
-      source = ./waybar;
+      source = ./waybar/shared;
       recursive = true;
     };
+    "waybar/config.jsonc".source = link "waybar/${hostname}/config.jsonc";
 
     "nvim/lua" = {
       source = ./nvim/lua;
@@ -36,7 +45,7 @@ in
     "vesktop" = {
       source = ./vesktop;
       recursive = true;
-			force = true;
+      force = true;
     };
 
     "xdg-desktop-portal-termfilechooser/config".source = ./xdg-desktop-portal-termfilechooser/config;
@@ -46,10 +55,10 @@ in
       force = true;
     };
 
-		"btop" = {
-			source = ./btop;
-			recursive = true;
-		};
+    "btop" = {
+      source = ./btop;
+      recursive = true;
+    };
 
     "nvim/init.lua" = {
       text = ''
