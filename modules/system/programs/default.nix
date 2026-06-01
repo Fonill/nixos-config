@@ -56,6 +56,7 @@ in
 		lldb
 
     # lsp szpont
+		libsForQt5.qt5.qtdeclarative
     bash-language-server
     clang-tools
     superhtml
@@ -116,7 +117,6 @@ in
     screenfetch
     fastfetch
     nerdfetch
-		linux-wallpaperengine
 
     # better msoffice (no epstein island here)
     libreoffice-qt6-fresh
@@ -132,6 +132,7 @@ in
     hyprcursor
     hyprshot
     waybar
+		quickshell
     wofi
     stow
     brightnessctl
