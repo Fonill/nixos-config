@@ -120,6 +120,9 @@ return {
 			-- HTML
 			superhtml = {},
 
+			-- htmx
+			htmx_lsp2 = {},
+
 			-- Bash
 			bashls = {},
 

@@ -39,7 +39,7 @@ in
       headsetcontrol
 
       # equalizers
-      # easyeffects
+      easyeffects
       jamesdsp
 
       libresprite
@@ -157,9 +157,11 @@ in
     ])
     ++ (with pkgs-very-unstable; [
 
+			google-lighthouse
+
       # lsp szpont
+			htmx-lsp2
       typescript-language-server
-      # nodePackages.typescript-language-server
       bash-language-server
       clang-tools
       superhtml
@@ -173,8 +175,6 @@ in
       jdt-language-server
       nodejs
       typescript
-      # nodePackages.nodejs
-      # nodePackages.typescript
       lua-language-server
       gnumake
       zig
