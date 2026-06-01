@@ -16,52 +16,56 @@ in
   imports = [
     ./zsh.nix
     ./yazi
-		./starship.nix
-		./java.nix
+    ./starship.nix
+    ./java.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
-  
+
   environment.systemPackages = with pkgs; [
 
-		gparted
-		wineWowPackages.wayland
+    libresprite
+    blockbench
 
-		# nvim live server
-		live-server
+    gparted
+    wineWowPackages.wayland
 
-		# treesitterszpont
-		vimPlugins.nvim-treesitter.withAllGrammars
+    # nvim live server
+    live-server
 
-		# lsp szpont
-		clang-tools
-		superhtml
-		vscode-css-languageserver
-		nixd
-		hyprls
-		pyright
-		rust-analyzer
-		intelephense
-		markdown-oxide
-		jdt-language-server
-		nodePackages.nodejs nodePackages.typescript
-		lua-language-server
-		gnumake
-		zig
-		ripgrep
+    # treesitterszpont
+    vimPlugins.nvim-treesitter.withAllGrammars
 
-		# formating
-		stylua
-		rustfmt
-		black
-		prettierd
+    # lsp szpont
+    clang-tools
+    superhtml
+    vscode-css-languageserver
+    nixd
+    hyprls
+    pyright
+    rust-analyzer
+    intelephense
+    markdown-oxide
+    jdt-language-server
+    nodePackages.nodejs
+    nodePackages.typescript
+    lua-language-server
+    gnumake
+    zig
+    ripgrep
+
+    # formating
+    stylua
+    rustfmt
+    black
+    prettierd
     php85Packages.php-codesniffer
-		google-java-format
-		nixfmt
-		gopls
+    google-java-format
+    nixfmt
+    gopls
 
-		# vpn
-		wireguard-tools
+    # vpn
+    wireguard-tools
 
     # yazi
     mediainfo
@@ -69,12 +73,15 @@ in
     dragon-drop
 
     # browsers
-    chrome brave firefox vivaldi
+    chrome
+    brave
+    firefox
+    vivaldi
 
     # calendar
     calcurse
 
-    # szpont++  
+    # szpont++
     veracrypt
     hashcat
     hashcat-utils
@@ -83,8 +90,8 @@ in
     speedtest-cli
     opencode
 
-		# signal
-		signal-desktop
+    # signal
+    signal-desktop
 
     # szpont pro max +++
     screenfetch
@@ -118,7 +125,7 @@ in
 
     # apps
     obsidian
-    kdePackages.dolphin
+    # kdePackages.dolphin
     bitwarden-desktop
     feh
     libqalculate
@@ -146,7 +153,7 @@ in
 
     # minecraft
     prismlauncher
-		gradle
+    gradle
 
     # abolute shitshow
     # cloc
@@ -172,7 +179,7 @@ in
           email = "rowerman2137@gmail.com";
         };
         init.defaultBranch = "main";
-				core.sshCommand = "ssh -i ~/.ssh/github";
+        core.sshCommand = "ssh -i ~/.ssh/github";
       };
     };
 

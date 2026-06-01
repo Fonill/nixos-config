@@ -249,7 +249,7 @@
             "enabled": true
         },
         "ImageZoom": {
-            "enabled": true
+            "enabled": false
         },
         "ImplicitRelationships": {
             "enabled": false
