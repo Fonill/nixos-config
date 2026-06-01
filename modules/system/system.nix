@@ -30,6 +30,7 @@
     };
 
     shellAliases = {
+			tree = "eza -T";
       nix-shell = "nix-shell --command $SHELL ";
       nd = "nix develop -c $SHELL";
       ls="eza --icons";

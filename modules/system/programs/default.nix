@@ -17,13 +17,17 @@ in
     ./zsh.nix
     ./yazi
 		./starship.nix
+		./java.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
   
   environment.systemPackages = with pkgs; [
 
-		gparted
+		# gparted
+
+		# nvim live server
+		live-server
 
 		# treesitterszpont
 		vimPlugins.nvim-treesitter.withAllGrammars
@@ -53,6 +57,7 @@ in
     php85Packages.php-codesniffer
 		google-java-format
 		nixfmt
+		gopls
 
 		# vpn
 		wireguard-tools
@@ -138,8 +143,9 @@ in
     direnv
     nix-direnv
 
-    # games
+    # minecraft
     prismlauncher
+		gradle
 
     # abolute shitshow
     # cloc

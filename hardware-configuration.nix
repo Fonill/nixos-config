@@ -44,13 +44,18 @@
       ];
     };
 
-		"/games" = {
-			device = "/dev/disk/by-uuid/7cac66eb-6857-4a38-a9c6-33326083b69b";
-			fsType = "ext4";
-		};
+    "/games" = {
+      device = "/dev/disk/by-uuid/7cac66eb-6857-4a38-a9c6-33326083b69b";
+      fsType = "ext4";
+    };
   };
 
-  swapDevices = [ ];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024;
+    }
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

@@ -101,7 +101,7 @@ return {
 			-- C/C++
 			clangd = {},
 			-- ccls = {},
-			
+
 			-- JAVA
 			jdtls = {},
 
@@ -117,7 +117,7 @@ return {
 			nixd = {},
 
 			-- Go
-			-- gopls = {},
+			gopls = {},
 
 			-- Python
 			pyright = {}, -- also see pyls

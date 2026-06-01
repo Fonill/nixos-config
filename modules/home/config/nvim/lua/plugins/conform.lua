@@ -3,12 +3,12 @@ return {
 	lazy = false,
 	keys = {
 		{
-			"<leader>h",
+			"<leader>fo",
 			function()
 				require("conform").format({ async = true, lsp_fallback = true })
 			end,
 			mode = "n",
-			desc = "[H]ormat",
+			desc = "[FO]rmat",
 		},
 	},
 	opts = {

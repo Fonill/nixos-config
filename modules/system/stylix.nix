@@ -5,7 +5,7 @@
 		enable = false;
 		autoEnable = false;
 
-		image = ../home/config/hypr/assets/nice-blue-background.png;
+		image = ../home/config/hypr/assets/background.png;
 
 		# base16Scheme = "${pkgs.base16-schemes}/share/themes/material-vivid.yaml";
 		base16Scheme = {
