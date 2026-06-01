@@ -17,7 +17,7 @@ o.breakindent = false
 g.have_nerd_font = true
 
 o.number = true
-o.relativenumber = false
+o.relativenumber = true
 
 o.showmode = false
 

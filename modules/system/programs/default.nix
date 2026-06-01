@@ -23,9 +23,17 @@ in
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    # audio
+    vlc
+    headsetcontrol
+
+    # equalizer
+    easyeffects
+    # jamesdsp
 
     libresprite
     blockbench
+    handbrake
 
     gparted
     wineWowPackages.wayland
@@ -145,6 +153,7 @@ in
     wget
     eza
     steam
+    heroic-unwrapped
 
     # nix shell shit
     direnv
@@ -175,9 +184,9 @@ in
       preferences = {
         "widget.use-xdg-desktop-portal.file-picker" = 1;
       };
-			policies = {
-				DisableTelemetry = true;
-			};
+      policies = {
+        DisableTelemetry = true;
+      };
     };
 
     git = {
