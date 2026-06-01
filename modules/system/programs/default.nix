@@ -172,6 +172,7 @@ in
     wget
     eza
     heroic-unwrapped
+		networkmanagerapplet
 
     steam
 		ckan
@@ -191,6 +192,7 @@ in
     # adwaita-icon-theme
 
   ];
+
 
   programs = {
     zoxide.enable = true;
