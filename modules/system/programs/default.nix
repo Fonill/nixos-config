@@ -1,4 +1,4 @@
-{ pkgs, pkgs-very-unstable, ... }:
+{ pkgs, pkgs-very-unstable, nurpkgs, ... }:
 let
   chrome = pkgs.google-chrome.override {
     commandLineArgs = [
@@ -25,6 +25,8 @@ in
 
   environment.systemPackages =
     (with pkgs; [
+
+			nurpkgs.repos.lonerOrz.helium
 
       ngrok
       sqlite
