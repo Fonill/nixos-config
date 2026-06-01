@@ -5,7 +5,7 @@
   hardware = {
     bluetooth = {
       enable = true;
-      powerOnBoot = true;
+      powerOnBoot = false;
     };
 
     opentabletdriver.enable = true;
