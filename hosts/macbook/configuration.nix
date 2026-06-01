@@ -2,8 +2,7 @@
 
 {
   imports = [
-    ../../modules/nixos
-    ./hardware
+    ../../modules/darwin
     inputs.home-manager.nixosModules.default
   ];
 
