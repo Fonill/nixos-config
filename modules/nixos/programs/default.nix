@@ -203,7 +203,7 @@
       zenity
       poppler-utils
 
-      bitwarden-desktop
+      # bitwarden-desktop
       # bitwarden-cli
 
     ]);
