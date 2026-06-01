@@ -19,7 +19,6 @@ return {
 				theme = {
 					wave = {
 						ui = {
-							backdrop = 100,
 							bg_gutter = "none",
 						},
 						syn = {

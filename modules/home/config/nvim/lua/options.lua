@@ -2,8 +2,6 @@ local o = vim.o
 local g = vim.g
 local opt = vim.opt
 
- init = function() vim.opt.termguicolors = true end 
-
 -- spacja znak sumy (sigma)
 g.mapleader = " "
 g.maplocalleader = " "
@@ -25,8 +23,8 @@ o.showmode = false
 
 g.clipboard = "wl-copy"
 vim.schedule(function()
-  o.clipboard = "unnamedplus" 
-end) 
+  o.clipboard = "unnamedplus"
+end)
 
 o.undofile = true
 
