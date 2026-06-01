@@ -6,6 +6,8 @@
     displayManager.gdm.enable = true;
     printing.enable = true;
 
+		tailscale.enable = true;
+
     pipewire = {
       enable = true;
 
