@@ -26,12 +26,19 @@ in
 			recursive = true;
 		};
 
-    "hypr" = {
-      source = ./hypr/shared;
-      recursive = true;
-    };
-    "hypr/hyprland.conf".source = link "hypr/${hostname}/hyprland.conf";
     "hypr/hyprpaper.conf".source = link "hypr/${hostname}/hyprpaper.conf";
+		"hypr/monitors.conf".source = link "hypr/${hostname}/monitors.conf";
+		"hypr/input.conf".source = link "hypr/${hostname}/input.conf";
+		"hypr/animations.conf".source = link "hypr/${hostname}/animations.conf";
+		"hypr/hyprland.conf".source = link "hypr/shared/hyprland.conf";
+		"hypr/assets".source = link "hypr/shared/assets";
+		"hypr/binds.conf".source = link "hypr/shared/modules/binds.conf";
+		"hypr/hyprsunset.conf".source = link "hypr/shared/modules/hyprsunset.conf";
+		"hypr/hyprlock.conf".source = link "hypr/shared/modules/hyprlock/hyprlock.conf";
+		"hypr/mocha.conf".source = link "hypr/shared/modules/hyprlock/mocha.conf";
+		"hypr/autostart.conf".source = link "hypr/shared/modules/autostart.conf";
+		"hypr/cursor.conf".source = link "hypr/shared/modules/cursor.conf";
+		"hypr/windows.conf".source = link "hypr/shared/modules/windows.conf";
 
     "wofi" = {
       source = ./wofi;
