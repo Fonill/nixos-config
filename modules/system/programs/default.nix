@@ -118,6 +118,9 @@ in
     fastfetch
     nerdfetch
 
+		# szpont pro max ++++
+		gemini-cli
+
     # better msoffice (no epstein island here)
     libreoffice-qt6-fresh
 
