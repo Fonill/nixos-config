@@ -44,3 +44,5 @@
   };
 
 }
+
+# best eduroam totorial https://gdansktech.atlassian.net/wiki/spaces/HPPG/pages/636551348/Eduroam+Linux
