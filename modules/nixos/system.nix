@@ -31,8 +31,11 @@
 
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
-      GDK_DEBUG = "portals";
       GDK_USE_PORTAL = "1";
+      GDK_DEBUG = "portals";
+
+      GSK_RENDERER = "gl"; # szpont na potrzeby so
+      GDK_DISABLE = "vulkan";
     };
 
     shellAliases = {
@@ -50,7 +53,7 @@
       calen = "calcurse";
       cal = "cal -n 12";
       ghgrab = "nix run github:abhixdd/ghgrab";
-			gpu = "git pull";
+      gpu = "git pull";
     };
   };
 
@@ -78,7 +81,7 @@
       "image/heif" = "org.gnome.Loupe.desktop";
       "image/heic-sequence" = "org.gnome.Loupe.desktop";
       "image/heif-sequence" = "org.gnome.Loupe.desktop";
-			"image/bmp" = "org.gnome.Loupe.desktop";
+      "image/bmp" = "org.gnome.Loupe.desktop";
 
       # Media (VLC Media Player)
       "video/mp4" = "vlc.desktop";
