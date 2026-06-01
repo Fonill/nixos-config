@@ -24,6 +24,7 @@ in
 
   environment.systemPackages =
     (with pkgs; [
+
       mpv
 
       vivify
@@ -203,6 +204,8 @@ in
       kitty
 
       lorien
+
+			zenity
 
     ]);
 

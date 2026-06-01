@@ -31,12 +31,19 @@
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
       xdg-desktop-portal-termfilechooser
       xdg-desktop-portal-hyprland
     ];
 
     config = {
       common."org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
+      hyprland = {
+        default = [
+          "hyprland"
+          "gtk"
+        ];
+      };
     };
   };
 }
