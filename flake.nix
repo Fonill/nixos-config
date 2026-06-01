@@ -14,20 +14,18 @@
 
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
 
-    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-25.11";
   };
 
   outputs =
     { self, nixpkgs, ... }@inputs:
     let
       flake-dir = "/etc/nixos";
-      pkgs-stable = inputs.nixpkgs-stable.legacyPackages.x86_64-linux;
     in
     {
       nixosConfigurations = {
         acer = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs flake-dir pkgs-stable;
+            inherit inputs flake-dir;
             hostname = "acer";
           };
           modules = [
@@ -39,7 +37,7 @@
 
         lenovo = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs flake-dir pkgs-stable;
+            inherit inputs flake-dir;
             hostname = "lenovo";
           };
           modules = [
