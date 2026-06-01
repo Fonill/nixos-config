@@ -4,13 +4,15 @@ TERM = "alacritty"
 
 [window]
 # Translated from background_opacity 0.99
-# Dynamic background opacity is handled by IPC/bindings in Alacritty.
-opacity = 0.99
+opacity = 0.98
 
 [font]
 # Translated from font_size 13.0
-# Bold and Italic are automatically inferred just like in Kitty.
 size = 13.0
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "SemiBold"
 
 [scrolling]
 history = 10000
@@ -24,17 +26,14 @@ background = "#1F1F28"
 foreground = "#DCD7BA"
 
 [colors.cursor]
-# In Kitty you had 'cursor_text-color background' and 'cursor #bbc2cf' (after override)
 text   = "#1F1F28" 
 cursor = "#bbc2cf"
 
 [colors.selection]
-# Took your latest overridden selection background (#44475a)
 text       = "#C8C093"
 background = "#44475a"
 
 [colors.normal]
-# From your theme.conf color0 to color7
 black   = "#16161D"
 red     = "#C34043"
 green   = "#76946A"
@@ -45,7 +44,6 @@ cyan    = "#6A9589"
 white   = "#C8C093"
 
 [colors.bright]
-# From your theme.conf color8 to color15
 black   = "#727169"
 red     = "#E82424"
 green   = "#98BB6C"
@@ -55,5 +53,10 @@ magenta = "#938AA9"
 cyan    = "#7AA89F"
 white   = "#DCD7BA"
 
-# Note: Extended colors (color16 #FFA066, color17 #FF5D62) are ignored 
-# because Alacritty relies purely on standard 16-color ANSI definitions.
+[[colors.indexed_colors]]
+index = 16
+color = "#FFA066"
+
+[[colors.indexed_colors]]
+index = 17
+color = "#FF5D62"
