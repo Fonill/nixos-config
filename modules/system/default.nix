@@ -9,6 +9,8 @@
     ./hardware.nix
     ./services.nix
     ./networking.nix
+		./virtualization.nix
+		./stylix.nix
     ./programs
   ];
 }

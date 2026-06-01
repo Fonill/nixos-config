@@ -1,10 +1,8 @@
 return{
   "thesimonho/kanagawa-paper.nvim",
-  lazy = false,
-  priority = 900,
-  init = function()
-    vim.cmd.colorscheme("kanagawa-paper-ink")
-  end,
+  -- lazy = false,
+	-- enabled = false,
+  -- priority = 1000,
   opts = {},
 }
 

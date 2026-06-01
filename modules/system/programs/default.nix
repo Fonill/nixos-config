@@ -39,6 +39,7 @@ in
 		lua-language-server
 		gnumake
 		zig
+		ripgrep
 
 		# formating
 		stylua
@@ -47,7 +48,10 @@ in
 		prettierd
     php85Packages.php-codesniffer
 		google-java-format
-		
+		nixfmt
+
+		# vpn
+		wireguard-tools
 
     # yazi
     mediainfo
@@ -108,7 +112,7 @@ in
     gimp
     krita
     blender
-    jetbrains.idea
+    # jetbrains.idea
     obs-studio
     ffmpeg
     lorien

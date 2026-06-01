@@ -6,6 +6,7 @@ let
   };
 in
 {
+
   xdg.configFile = {
     "kitty" = {
       source = ./kitty;

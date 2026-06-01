@@ -1,5 +1,5 @@
-return{
-  'stevearc/conform.nvim',
+return {
+	"stevearc/conform.nvim",
 	lazy = false,
 	keys = {
 		{
@@ -11,7 +11,7 @@ return{
 			desc = "[H]ormat",
 		},
 	},
-  opts = {
+	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "black" },
@@ -25,6 +25,7 @@ return{
 			json = { "prettierd", stop_after_first = true },
 			java = { "google-java-format" },
 			php = { "phpcbf" },
+			nix = { "nixfmt"},
 		},
 	},
 }
