@@ -87,7 +87,7 @@
       # Mail
       "x-scheme-handler/mailto" = "firefox.desktop";
 
-      # Media (Optional)
+      # Media
       "video/mp4" = "firefox.desktop";
       "video/webm" = "firefox.desktop";
       "audio/mpeg" = "firefox.desktop";
