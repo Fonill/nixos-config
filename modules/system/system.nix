@@ -53,6 +53,7 @@
       cal = "cal -n 12";
       o = "poweroff";
       ghgrab = "nix run github:abhixdd/ghgrab";
+			gpu = "git pull";
     };
   };
 
