@@ -40,9 +40,7 @@
       nix-shell = "nix-shell --command $SHELL ";
       nd = "nix develop -c $SHELL";
       ls = "eza --icons";
-      v = "nixCats";
       n = "nvim";
-      l = "nixCats";
       nvim = "nvim";
       lvim = "nixCats";
       cy = "cd ~/studia; yazi";
@@ -50,10 +48,8 @@
       ncfg = "nvim /etc/nixos/modules/system/programs/default.nix";
       kcfg = "nvim ~/.config/kitty/kitty.conf";
       nixorg = "firefox https://search.nixos.org/packages";
-      pogoda = "curl wttr.in/Gdansk"; # :)
+      # pogoda = "curl wttr.in/Gdansk";
       reb = "sudo nixos-rebuild switch";
-      con = "rclone mount Fonil:studia ~/cloud --vfs-cache-mode full &";
-      discon = "fusermount -u ~/cloud";
       calen = "calcurse";
       cal = "cal -n 12";
       o = "poweroff";
