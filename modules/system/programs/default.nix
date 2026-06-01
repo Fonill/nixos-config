@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-very-unstable, ... }:
 let
   chrome = pkgs.google-chrome.override {
     commandLineArgs = [
@@ -119,7 +119,7 @@ in
     nerdfetch
 
 		# szpont pro max ++++
-		gemini-cli
+		pkgs-very-unstable.gemini-cli
 
     # better msoffice (no epstein island here)
     libreoffice-qt6-fresh
