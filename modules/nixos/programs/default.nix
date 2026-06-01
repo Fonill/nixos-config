@@ -11,14 +11,14 @@
     ./yazi
     ./starship.nix
     ./java.nix
-		./custom
+    ./custom
   ];
 
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages =
     (with pkgs; [
-			github-cli
+      github-cli
 
       ngrok
       sqlite
@@ -123,6 +123,7 @@
       blender
       obs-studio
       ffmpeg
+      poppler-utils
       spotify
       discord
       whatsapp-electron
