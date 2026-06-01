@@ -9,7 +9,8 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   
-	"cpu": {
+  "cpu": {
+    "min-length": 8,
     "format": "<span size='13000' foreground='#9c86bf'> </span> {usage:>3}%",
     "tooltip": false,
     "interval": 2
@@ -17,6 +18,7 @@
 
   "battery": {
     "interval": 2,
+    "min-length": 14,
     "states": {
       "warning": 30,
       "critical": 15
@@ -32,21 +34,23 @@
     "tooltip-format": "{time} at {power:.2f} Watts"
   },
   
-	"network": {
+  "network": {
     "interval": 2,
-    "format-wifi": "<span size='13000' foreground='#dca561'>  </span>{essid}  <span font_family='monospace'>↓ {bandwidthDownBytes:>10}  ↑ {bandwidthUpBytes:>10}</span>",
-    "format-ethernet": "<span size='13000' foreground='#dca561'>󰈀  </span><span font_family='monospace'>↓ {bandwidthDownBytes:>10}  ↑ {bandwidthUpBytes:>10}</span>",
+    "min-length": 38,
+    "format-wifi": "<span size='13000' foreground='#dca561'>  </span>{essid}  ↓ {bandwidthDownBytes:>10}  ↑ {bandwidthUpBytes:>10}",
+    "format-ethernet": "<span size='13000' foreground='#dca561'>󰈀  </span>↓ {bandwidthDownBytes:>10}  ↑ {bandwidthUpBytes:>10}",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "<span size='13000' foreground='#dca561'>  </span>Disconnected",
     "tooltip-format-wifi": "Signal Strength: {signalStrength}%"
   },
   
   "pulseaudio": {
-      "format": "{icon}  {volume}%",
-      "format-muted": "",
-      "format-icons": {
-          "default": ["", "", " "]
-      },
-      "on-click": "pavucontrol"
+    "min-length": 7,
+    "format": "{icon}  {volume:>3}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", " "]
+    },
+    "on-click": "pavucontrol"
   }
 }
