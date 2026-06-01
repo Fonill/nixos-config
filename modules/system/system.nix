@@ -26,6 +26,7 @@
   environment = {
     variables = {
       EDITOR = "nvim";
+      BROWSER = "firefox";
     };
 
     sessionVariables = {
@@ -57,6 +58,40 @@
       cal = "cal -n 12";
       o = "poweroff";
       ghgrab = "nix run github:abhixdd/ghgrab";
+    };
+  };
+
+  xdg.mime = {
+    enable = true;
+    defaultApplications = {
+      # Web links
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+      "x-scheme-handler/unknown" = "firefox.desktop";
+
+      # Images
+      "image/jpeg" = "firefox.desktop";
+      "image/png" = "firefox.desktop";
+      "image/gif" = "firefox.desktop";
+      "image/webp" = "firefox.desktop";
+      "image/svg+xml" = "firefox.desktop";
+
+      # Documents & Data
+      "application/pdf" = "firefox.desktop";
+      "application/json" = "firefox.desktop";
+      "text/xml" = "firefox.desktop";
+      "application/xml" = "firefox.desktop";
+
+      # Mail
+      "x-scheme-handler/mailto" = "firefox.desktop";
+
+      # Media (Optional)
+      "video/mp4" = "firefox.desktop";
+      "video/webm" = "firefox.desktop";
+      "audio/mpeg" = "firefox.desktop";
+      "audio/ogg" = "firefox.desktop";
     };
   };
 
