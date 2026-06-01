@@ -62,3 +62,5 @@ o.scrolloff = 10
 o.confirm = true
 
 g.instant_username = "fonil"
+
+vim.deprecate = function() end
