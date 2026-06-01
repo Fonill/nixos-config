@@ -9,7 +9,7 @@
 
     fontconfig = {
       defaultFonts = {
-        monospace = ["Hack NerdFont"];
+        monospace = [ "Hack NerdFont" ];
       };
     };
 

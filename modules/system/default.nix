@@ -8,8 +8,8 @@
     ./system.nix
     ./services.nix
     ./network/networking.nix
-		./virtualization.nix
-		./stylix.nix
+    ./virtualization.nix
+    ./stylix.nix
     ./programs
   ];
 }

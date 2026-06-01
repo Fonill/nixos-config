@@ -1,10 +1,4 @@
-{
-  pkgs,
-  config,
-  flake-dir,
-  hostname,
-  ...
-}:
+{ pkgs, config, flake-dir, hostname, ... }:
 let
   link = f: config.lib.file.mkOutOfStoreSymlink "${flake-dir}/modules/home/config/${f}";
   treesitter-parsers = pkgs.symlinkJoin {
@@ -19,33 +13,33 @@ in
       source = ./kitty/shared;
       recursive = true;
     };
-		"kitty/kitty.conf".source = link "kitty/${hostname}/kitty.conf";
+    "kitty/kitty.conf".source = link "kitty/${hostname}/kitty.conf";
 
-		"alacritty" = {
-			source = ./alacritty;
-			recursive = true;
-		};
+    "alacritty" = {
+      source = ./alacritty;
+      recursive = true;
+    };
 
     "hypr/hyprpaper.conf".source = link "hypr/${hostname}/hyprpaper.conf";
-		"hypr/monitors.conf".source = link "hypr/${hostname}/monitors.conf";
-		"hypr/input.conf".source = link "hypr/${hostname}/input.conf";
-		"hypr/animations.conf".source = link "hypr/${hostname}/animations.conf";
-		"hypr/hyprland.conf".source = link "hypr/shared/hyprland.conf";
-		"hypr/assets".source = link "hypr/shared/assets";
-		"hypr/binds.conf".source = link "hypr/shared/modules/binds.conf";
-		"hypr/hyprsunset.conf".source = link "hypr/shared/modules/hyprsunset.conf";
-		"hypr/hyprlock.conf".source = link "hypr/shared/modules/hyprlock/hyprlock.conf";
-		"hypr/mocha.conf".source = link "hypr/shared/modules/hyprlock/mocha.conf";
-		"hypr/autostart.conf".source = link "hypr/shared/modules/autostart.conf";
-		"hypr/cursor.conf".source = link "hypr/shared/modules/cursor.conf";
-		"hypr/windows.conf".source = link "hypr/shared/modules/windows.conf";
+    "hypr/monitors.conf".source = link "hypr/${hostname}/monitors.conf";
+    "hypr/input.conf".source = link "hypr/${hostname}/input.conf";
+    "hypr/animations.conf".source = link "hypr/${hostname}/animations.conf";
+    "hypr/hyprland.conf".source = link "hypr/shared/hyprland.conf";
+    "hypr/assets".source = link "hypr/shared/assets";
+    "hypr/binds.conf".source = link "hypr/shared/modules/binds.conf";
+    "hypr/hyprsunset.conf".source = link "hypr/shared/modules/hyprsunset.conf";
+    "hypr/hyprlock.conf".source = link "hypr/shared/modules/hyprlock/hyprlock.conf";
+    "hypr/mocha.conf".source = link "hypr/shared/modules/hyprlock/mocha.conf";
+    "hypr/autostart.conf".source = link "hypr/shared/modules/autostart.conf";
+    "hypr/cursor.conf".source = link "hypr/shared/modules/cursor.conf";
+    "hypr/windows.conf".source = link "hypr/shared/modules/windows.conf";
 
     "wofi" = {
       source = ./wofi;
       recursive = true;
     };
 
-		"quickshell/shell.qml".source = link "quickshell/${hostname}/shell.qml";
+    "quickshell/shell.qml".source = link "quickshell/${hostname}/shell.qml";
 
     "waybar" = {
       source = ./waybar/shared;
