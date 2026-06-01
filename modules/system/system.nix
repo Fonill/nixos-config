@@ -27,6 +27,8 @@
 
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
+			GDK_DEBUG="portals";
+			GDK_USE_PORTAL="1";
     };
 
     shellAliases = {

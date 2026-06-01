@@ -75,7 +75,6 @@ in
     # browsers
     chrome
     brave
-    firefox
     vivaldi
 
     # calendar
@@ -169,6 +168,16 @@ in
     hyprland = {
       enable = true;
       xwayland.enable = true;
+    };
+
+    firefox = {
+      enable = true;
+      preferences = {
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+      };
+			policies = {
+				DisableTelemetry = true;
+			};
     };
 
     git = {
