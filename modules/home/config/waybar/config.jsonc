@@ -2,33 +2,45 @@
   "position": "top",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "pulseaudio", "battery", "clock"],
+  "modules-right": ["network", "pulseaudio", "battery", "cpu", "clock"],
+  
   "clock": {
     "format": "<span foreground='#d8616b'>   </span>{:%a %d %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
+  
+	"cpu": {
+    "format": "<span size='13000' foreground='#9c86bf'> </span> {usage:>3}%",
+    "tooltip": false,
+    "interval": 2
+  },
+
   "battery": {
+    "interval": 2,
     "states": {
       "warning": 30,
       "critical": 15
     },
-    "format": "<span size='13000' foreground='#98bb6c'>{icon} </span> {capacity}%",
-    "format-warning": "<span size='13000' foreground='#98bb6c'>{icon} </span> {capacity}%",
-    "format-critical": "<span size='13000' foreground='#E38C8F'>{icon} </span> {capacity}%",
-    "format-charging": "<span size='13000' foreground='#98bb6c'> </span>{capacity}%",
-    "format-plugged": "<span size='13000' foreground='#98bb6c'> </span>{capacity}%",
-    "format-alt": "<span size='13000' foreground='#98bb6c'>{icon} </span> {time}",
-    "format-full": "<span size='13000' foreground='#98bb6c'> </span>{capacity}%",
+    "format": "<span size='13000' foreground='#7e9cd8'>{icon} </span> {capacity}% ({power:.2f}W)",
+    "format-warning": "<span size='13000' foreground='#7e9cd8'>{icon} </span> {capacity}% ({power:.2f}W)",
+    "format-critical": "<span size='13000' foreground='#E38C8F'>{icon} </span> {capacity}% ({power:.2f}W)",
+    "format-charging": "<span size='13000' foreground='#7e9cd8'> </span>{capacity}% ({power:.2f}W)",
+    "format-plugged": "<span size='13000' foreground='#7e9cd8'> </span>{capacity}% ({power:.2f}W)",
+    "format-alt": "<span size='13000' foreground='#7e9cd8'>{icon} </span> {time}",
+    "format-full": "<span size='13000' foreground='#7e9cd8'> </span>{capacity}%",
     "format-icons": ["", "", "", "", ""],
-    "tooltip-format": "{time}"
+    "tooltip-format": "{time} at {power:.2f} Watts"
   },
-  "network": {
-    "format-wifi": "<span size='13000' foreground='#dca561'>  </span>{essid}",
-    "format-ethernet": "<span size='13000' foreground='#dca561'>󰤭  </span> Disconnected",
+  
+	"network": {
+    "interval": 2,
+    "format-wifi": "<span size='13000' foreground='#dca561'>  </span>{essid}  <span font_family='monospace'>↓ {bandwidthDownBytes:>10}  ↑ {bandwidthUpBytes:>10}</span>",
+    "format-ethernet": "<span size='13000' foreground='#dca561'>󰈀  </span><span font_family='monospace'>↓ {bandwidthDownBytes:>10}  ↑ {bandwidthUpBytes:>10}</span>",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "<span size='13000' foreground='#dca561'>  </span>Disconnected",
-    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
+    "tooltip-format-wifi": "Signal Strength: {signalStrength}%"
   },
+  
   "pulseaudio": {
       "format": "{icon}  {volume}%",
       "format-muted": "",

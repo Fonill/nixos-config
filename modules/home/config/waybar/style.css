@@ -75,6 +75,11 @@ button:hover {
   padding-right: 4px;
 }
 
+#cpu {
+  color: @lavender;
+  border-bottom: 2px solid @lavender;
+}
+
 #clock {
   color: @maroon;
   border-bottom: 2px solid @maroon;
@@ -86,8 +91,8 @@ button:hover {
 }
 
 #pulseaudio {
-  color: @blue;
-  border-bottom: 2px solid @blue;
+  color: @green;
+  border-bottom: 2px solid @green;
 }
 
 #network {
@@ -105,8 +110,8 @@ button:hover {
 }
 
 #battery {
-  color: @green;
-  border-bottom: 2px solid @green;
+  color: @blue;
+  border-bottom: 2px solid @blue;
 }
 
 /* If workspaces is the leftmost module, omit left margin */

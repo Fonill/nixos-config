@@ -51,6 +51,9 @@ in
     # treesitterszpont
     vimPlugins.nvim-treesitter.withAllGrammars
 
+		# debugger
+		lldb
+
     # lsp szpont
     bash-language-server
     clang-tools
