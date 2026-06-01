@@ -153,6 +153,7 @@ in
           email = "rowerman2137@gmail.com";
         };
         init.defaultBranch = "main";
+				core.sshCommand = "ssh -i ~/.ssh/github";
       };
     };
 
