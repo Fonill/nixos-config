@@ -24,7 +24,8 @@ in
   
   environment.systemPackages = with pkgs; [
 
-		# gparted
+		gparted
+		wineWowPackages.wayland
 
 		# nvim live server
 		live-server

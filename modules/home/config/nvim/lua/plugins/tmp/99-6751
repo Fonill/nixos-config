@@ -1,9 +1,0 @@
-    local basename = vim.fs.basename(cwd)
-    _99.setup {
-      model = 'gemini 2.5 flash',
-      logger = {
-        level = _99.INFO,
-        -- path = '/tmp/' .. basename .. '.99.debug',
-        path = '/tmp/99.debug',
-        print_on_error = true,
-      },

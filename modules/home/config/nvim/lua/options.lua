@@ -2,6 +2,8 @@ local o = vim.o
 local g = vim.g
 local opt = vim.opt
 
+ init = function() vim.opt.termguicolors = true end 
+
 -- spacja znak sumy (sigma)
 g.mapleader = " "
 g.maplocalleader = " "

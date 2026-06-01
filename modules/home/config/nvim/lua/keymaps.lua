@@ -12,3 +12,6 @@ map("n", "<leader>x", ":tabclose<CR>", { desc = "Close current tab" })
 map("n", "<Tab>", ":tabnext<CR>", { desc = "Next [Tab]" })
 map("n", "<S-Tab>", ":tabprev<CR>", { desc = "Prev [Tab]" })
 
+-- Custom Deploy Script for minecraft modding
+map("n", "<Space>dr", ":w | !/home/fonil/minecraftmoding/template/deployandrun.sh<CR>", { desc = "Save and Execute Deploy Script and Run" })
+map("n", "<Space>de", ":w | !/home/fonil/minecraftmoding/template/deploy.sh<CR>", { desc = "Save & Execute Deploy Script" })
