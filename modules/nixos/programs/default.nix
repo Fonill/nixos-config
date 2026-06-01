@@ -19,7 +19,6 @@
   environment.systemPackages =
     (with pkgs; [
 
-      nurpkgs.repos.lonerOrz.helium
 
       ngrok
       sqlite
@@ -67,7 +66,8 @@
       dragon-drop
 
       # browsers
-			google-chrome
+      nurpkgs.repos.lonerOrz.helium
+      google-chrome
       brave
 
       # calendar
@@ -115,7 +115,6 @@
 
       # apps
       obsidian
-      # kdePackages.dolphin
       bitwarden-desktop
       feh
       libqalculate
@@ -145,13 +144,9 @@
 
       # minecraft
       prismlauncher
-      gradle
 
-      # abolute shitshow
-      # cloc
-      # teams-for-linux
-      # valgrind
-      # adwaita-icon-theme
+      # cloc # tool to count lines of code
+      # valgrind # tool to debug programs
 
     ])
     ++ (with pkgs-very-unstable; [
@@ -182,6 +177,7 @@
       zig
       ripgrep
       gopls
+      air
 
       # formatting
       shfmt
@@ -203,8 +199,8 @@
 
       lorien
 
+			# cli to gui
       zenity
-      air
 
     ]);
 
@@ -222,12 +218,12 @@
       extensions = [
         "eimadpbcbfnmbkopoojfekhnkhdbieeh;https://clients2.google.com/service/update2/crx" # Dark Reader
         "dbepggeogbaibhgnhhndojpepiihcmeb;https://clients2.google.com/service/update2/crx" # Vimium
-				"blipmdconlkpinefehnmjammfjpmpbjk;https://clients2.google.com/service/update2/crx" # Lighthouse
-				"nngceckbapebfimnlniiiahkandclblb;https://clients2.google.com/service/update2/crx" # Bitwarden
-				"nkphlkgkhmdaecflflapohlkkchmcacc;https://clients2.google.com/service/update2/crx" # Save for later
-				"mnjggcdmjocbbbhaepdhchncahnbgone;https://clients2.google.com/service/update2/crx" # SponsorBlock
-				"oldceeleldhonbafppcapldpdifcinji;https://clients2.google.com/service/update2/crx" # AI Grammar checker
-				"gebbhagfogifgggkldgodflihgfeippi;https://clients2.google.com/service/update2/crx" # Dislikes
+        "blipmdconlkpinefehnmjammfjpmpbjk;https://clients2.google.com/service/update2/crx" # Lighthouse
+        "nngceckbapebfimnlniiiahkandclblb;https://clients2.google.com/service/update2/crx" # Bitwarden
+        "nkphlkgkhmdaecflflapohlkkchmcacc;https://clients2.google.com/service/update2/crx" # Save for later
+        "mnjggcdmjocbbbhaepdhchncahnbgone;https://clients2.google.com/service/update2/crx" # SponsorBlock
+        "oldceeleldhonbafppcapldpdifcinji;https://clients2.google.com/service/update2/crx" # AI Grammar checker
+        "gebbhagfogifgggkldgodflihgfeippi;https://clients2.google.com/service/update2/crx" # Dislikes
 
       ];
     };
