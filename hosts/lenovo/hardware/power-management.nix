@@ -4,7 +4,7 @@
   powerManagement.enable = true;
 
   services = {
-    system76-scheduler.enable = false;
+    system76-scheduler.enable = true;
     # system76-scheduler.settings.cfsProfiles.enable = true;
 
     thermald.enable = true;
