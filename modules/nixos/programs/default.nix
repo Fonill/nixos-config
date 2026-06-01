@@ -19,8 +19,6 @@
   environment.systemPackages =
     (with pkgs; [
 			github-cli
-			docker-compose
-			mysql80
 
       ngrok
       sqlite
