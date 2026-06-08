@@ -14,7 +14,14 @@
     ./custom
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+
+    permittedInsecurePackages = [
+      "docker-28.5.2"
+      "electron-39.8.10"
+    ];
+  };
 
   environment.systemPackages =
     (with pkgs; [
@@ -32,6 +39,7 @@
 
       gcc
       go
+      python3
 
       # audio
       vlc
