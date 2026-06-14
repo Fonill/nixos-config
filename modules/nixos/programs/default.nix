@@ -25,6 +25,9 @@
 
   environment.systemPackages =
     (with pkgs; [
+
+      anki
+
       github-cli
 
       ngrok
@@ -154,6 +157,8 @@
 
       # cloc # tool to count lines of code
       # valgrind # tool to debug programs
+
+      protonvpn-gui
 
     ])
     ++ (with pkgs-very-unstable; [
