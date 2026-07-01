@@ -63,7 +63,8 @@
       live-server
 
       # treesitterszpont
-      vimPlugins.nvim-treesitter.withAllGrammars
+      # vimPlugins.nvim-treesitter.withAllGrammars
+      nvim-treesitter.withAllGrammars
 
       # debugger
       lldb

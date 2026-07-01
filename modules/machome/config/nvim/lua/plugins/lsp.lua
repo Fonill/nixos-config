@@ -118,7 +118,9 @@ return {
 			},
 
 			-- HTML
-			superhtml = {},
+			superhtml = {
+				filetypes = { "html" },
+			},
 
 			-- htmx
 			htmx_lsp2 = {},

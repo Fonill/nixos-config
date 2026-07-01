@@ -3,24 +3,33 @@
 {
   imports = [
     ./system.nix
-		./zsh.nix
-		./custom
+    ./zsh.nix
+    ./custom
   ];
 
   nix.settings.experimental-features = "nix-command flakes";
-  nixpkgs.config.allowUnsupportedSystem = true;
-  nixpkgs.hostPlatform = "aarch64-darwin";
 
-  system.stateVersion = 5;
+  system = {
+    stateVersion = 5;
+    primaryUser = "fonil";
+  };
 
-  system.primaryUser = "fonil";
+  nixpkgs = {
+    config = {
 
+      allowUnfree = true;
+      allowUnsupportedSystem = true;
+    };
 
-  nixpkgs.config.allowUnfree = true;
+    hostPlatform = "aarch64-darwin";
+
+  };
 
   homebrew = {
     enable = true;
     casks = [
+      "firefox"
+      "google-chrome"
       "steam"
       "obs"
       "discord"
@@ -37,7 +46,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-		zoxide
+    zoxide
+    luarocks
+    tree-sitter
 
     starship
     kitty
@@ -103,7 +114,7 @@
     google-java-format
     nixfmt
 
-		direnv
+    direnv
 
     # lorien
   ];
