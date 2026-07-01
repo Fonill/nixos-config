@@ -3,12 +3,12 @@
 
   inputs = {
     stylix = {
-      url = "github:nix-community/stylix/release-25.11";
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -18,19 +18,21 @@
     };
 
     nix-darwin = {
-      url = "github:LnL7/nix-darwin";
+      url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs-very-unstable.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable";
+    nixpkgs-very-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
   outputs =
     { nixpkgs, nur, nix-darwin, ... }@inputs:
     let
-      flake-dir = "/etc/nixos"; # TODO chage later
+      flake-dir = "/etc/nixos";
+      darwin-dir = "/Users/fonil/nix-config";
+
       linuxSystem = "x86_64-linux";
       darwinSystem = "aarch64-darwin";
 
@@ -81,17 +83,17 @@
 
       };
 
-			darwinConfigurations = {
-        macos = nix-darwin.lib.darwinSystem {
+      darwinConfigurations = {
+        nixbook = nix-darwin.lib.darwinSystem {
           system = darwinSystem;
           specialArgs = {
-            inherit inputs flake-dir;
+            inherit inputs darwin-dir;
             pkgs-very-unstable = pkgs-very-unstable-darwin;
             nurpkgs = nurpkgs-darwin;
             hostname = "nixbook";
           };
           modules = [
-            ./hosts/macos/configuration.nix
+            ./hosts/nixbook/configuration.nix
             inputs.home-manager.darwinModules.default
             inputs.stylix.darwinModules.stylix
           ];

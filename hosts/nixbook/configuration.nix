@@ -1,13 +1,19 @@
-{ inputs, flake-dir, hostname, ... }:
+{ inputs, darwin-dir, hostname, ... }:
 
 {
   imports = [
     ../../modules/darwin
-    inputs.home-manager.nixosModules.default
   ];
 
+  nix.enable = false;
+
+  users.users.fonil = {
+    name = "fonil";
+    home = "/Users/fonil";
+  };
+
   home-manager = {
-    extraSpecialArgs = { inherit inputs flake-dir hostname; };
-    users.fonil = import ../../modules/home;
+    extraSpecialArgs = { inherit inputs darwin-dir hostname; };
+    users.fonil = import ../../modules/machome;
   };
 }
