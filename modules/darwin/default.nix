@@ -8,6 +8,7 @@
   ];
 
   nix.settings.experimental-features = "nix-command flakes";
+  documentation.doc.enable = false;
 
   system = {
     stateVersion = 5;
@@ -28,6 +29,7 @@
   homebrew = {
     enable = true;
     casks = [
+      "figma"
       "firefox"
       "google-chrome"
       "steam"

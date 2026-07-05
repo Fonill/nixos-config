@@ -10,6 +10,10 @@
     histSize = 5000;
     histFile = "$HOME/.zsh_history";
 
+		promptInit = /* bash */ ''
+			eval "$(starship init zsh)"
+		'';
+
     shellInit = /* bash */ ''
       function y() {
         local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -23,7 +27,6 @@
     interactiveShellInit = /* bash */ ''
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       eval "$(direnv hook zsh)"
-			eval "$(starship init zsh)"
 
       pogoda() {
         local city="''${1:-Gdansk}"
