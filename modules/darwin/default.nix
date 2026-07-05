@@ -8,7 +8,8 @@
   ];
 
   nix.settings.experimental-features = "nix-command flakes";
-  documentation.doc.enable = false;
+  # documentation.doc.enable = false;
+  documentation.enable = false;
 
   system = {
     stateVersion = 5;
@@ -82,6 +83,7 @@
     hashcat-utils
     ghidra
 
+		ngrok
     gcc
     go
     python3

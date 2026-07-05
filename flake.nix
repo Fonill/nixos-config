@@ -22,7 +22,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixpkgs-very-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
