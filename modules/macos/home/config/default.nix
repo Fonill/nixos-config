@@ -1,6 +1,6 @@
 { pkgs, config, darwin-dir, hostname, ... }:
 let
-  link = f: config.lib.file.mkOutOfStoreSymlink "${darwin-dir}/modules/machome/config/${f}";
+  link = f: config.lib.file.mkOutOfStoreSymlink "${darwin-dir}/modules/macos/home/config/${f}";
   treesitter-parsers = pkgs.symlinkJoin {
     name = "treesitter-parsers";
     paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
@@ -32,7 +32,7 @@ in
         			'';
     };
 
-		"starship.toml".source = link "starship.toml";
+		"starship.toml".source = link "starship/starship.toml";
 
   };
 }

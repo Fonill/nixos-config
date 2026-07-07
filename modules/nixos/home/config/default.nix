@@ -1,6 +1,6 @@
 { pkgs, config, flake-dir, hostname, ... }:
 let
-  link = f: config.lib.file.mkOutOfStoreSymlink "${flake-dir}/modules/home/config/${f}";
+  link = f: config.lib.file.mkOutOfStoreSymlink "${flake-dir}/modules/nixos/home/config/${f}";
   treesitter-parsers = pkgs.symlinkJoin {
     name = "treesitter-parsers";
     paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;

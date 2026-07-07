@@ -30,6 +30,10 @@
   homebrew = {
     enable = true;
     casks = [
+      "lm-studio"
+      "caffeine"
+      "crossover"
+      "bitwarden"
       "figma"
       "firefox"
       "google-chrome"
@@ -83,7 +87,7 @@
     hashcat-utils
     ghidra
 
-		ngrok
+    ngrok
     gcc
     go
     python3

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../modules/darwin
+    ../../modules/macos/sysmodules
   ];
 
   nix.enable = false;
@@ -14,6 +14,6 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs darwin-dir hostname; };
-    users.fonil = import ../../modules/machome;
+    users.fonil = import ../../modules/macos/home;
   };
 }
