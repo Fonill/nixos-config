@@ -8,8 +8,7 @@
   ];
 
   nix.settings.experimental-features = "nix-command flakes";
-  # documentation.doc.enable = false;
-  documentation.enable = false;
+  # documentation.enable = false;
 
   system = {
     stateVersion = 5;
@@ -30,6 +29,8 @@
   homebrew = {
     enable = true;
     casks = [
+      "utm"
+      "whisky"
       "lm-studio"
       "caffeine"
       "crossover"

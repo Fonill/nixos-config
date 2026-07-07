@@ -1,6 +1,6 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
-	build = ":TSUpdate",
+	build = ':TSUpdate',
 	branch = 'main',
 	lazy = false,
 	config = function(_, opts)
@@ -32,6 +32,13 @@ return {
 				local buf, filetype = args.buf, args.match
 				local language = vim.treesitter.language.get_lang(filetype)
 				if not language then
+					return
+				end
+
+				-- Disable treesitter indentation for qml files
+				if filetype == "qml" then
+					if not vim.treesitter.language.add(language) then return end
+					vim.treesitter.start(buf, language)
 					return
 				end
 
