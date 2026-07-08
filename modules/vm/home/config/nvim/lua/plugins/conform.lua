@@ -1,0 +1,33 @@
+return {
+	"stevearc/conform.nvim",
+	lazy = false,
+	keys = {
+		{
+			"<leader>fo",
+			function()
+				require("conform").format({ async = true, lsp_fallback = true })
+			end,
+			mode = "n",
+			desc = "[FO]rmat",
+		},
+	},
+	opts = {
+		formatters_by_ft = {
+			lua = { "stylua" },
+			python = { "black" },
+			rust = { "rustfmt", lsp_format = "fallback" },
+			javascript = { "prettierd", stop_after_first = true },
+			typescript = { "prettierd", stop_after_first = true },
+			c = { "clang_format" },
+			cpp = { "clang_format" },
+			css = { "prettierd", stop_after_first = true },
+			html = { "superhtml" },
+			json = { "prettierd", stop_after_first = true },
+			java = { "google-java-format" },
+			php = { "phpcbf" },
+			nix = { "nixfmt" },
+			markdown = { "prettierd", stop_after_first = true },
+			sh = { "shfmt" },
+		},
+	},
+}

@@ -1,0 +1,117 @@
+{ ... }:
+
+{
+  nix = {
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+
+    optimise = {
+      automatic = true;
+      dates = "weekly";
+    };
+
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
+
+  };
+
+  environment = {
+    variables = {
+      EDITOR = "nvim";
+      BROWSER = "firefox";
+    };
+
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      GDK_USE_PORTAL = "1";
+      GDK_DEBUG = "portals";
+
+      GSK_RENDERER = "gl"; # szpont na potrzeby so
+      GDK_DISABLE = "vulkan";
+    };
+
+    shellAliases = {
+      tree = "eza -T";
+      nix-shell = "nix-shell --command $SHELL ";
+      nd = "nix develop -c $SHELL";
+      ls = "eza --icons";
+      n = "nvim";
+      nvim = "nvim";
+      cy = "cd ~/studia; yazi";
+      cs = "cd ~/studia";
+      ncfg = "nvim /etc/nixos/modules/nixos/programs/default.nix";
+      kcfg = "nvim ~/.config/kitty/kitty.conf";
+      reb = "sudo nixos-rebuild switch";
+      calen = "calcurse";
+      cal = "cal -n 12";
+      ghgrab = "nix run github:abhixdd/ghgrab";
+      gpu = "git pull";
+    };
+  };
+
+  xdg.mime = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+      "x-scheme-handler/unknown" = "firefox.desktop";
+      "application/pdf" = "firefox.desktop";
+      "application/json" = "firefox.desktop";
+      "x-scheme-handler/mailto" = "firefox.desktop";
+      "text/xml" = "firefox.desktop";
+      "application/xml" = "firefox.desktop";
+
+      # Images (Loupe)
+      "image/jpeg" = "org.gnome.Loupe.desktop";
+      "image/png" = "org.gnome.Loupe.desktop";
+      "image/gif" = "org.gnome.Loupe.desktop";
+      "image/webp" = "org.gnome.Loupe.desktop";
+      "image/svg+xml" = "org.gnome.Loupe.desktop";
+      "image/heic" = "org.gnome.Loupe.desktop";
+      "image/heif" = "org.gnome.Loupe.desktop";
+      "image/heic-sequence" = "org.gnome.Loupe.desktop";
+      "image/heif-sequence" = "org.gnome.Loupe.desktop";
+      "image/bmp" = "org.gnome.Loupe.desktop";
+
+      # Media (VLC Media Player)
+      "video/mp4" = "vlc.desktop";
+      "video/webm" = "vlc.desktop";
+      "video/x-matroska" = "vlc.desktop";
+      "video/quicktime" = "vlc.desktop";
+      "audio/mpeg" = "vlc.desktop";
+      "audio/ogg" = "vlc.desktop";
+      "audio/wav" = "vlc.desktop";
+      "audio/x-wav" = "vlc.desktop";
+      "audio/flac" = "vlc.desktop";
+
+    };
+  };
+
+  time.timeZone = "Europe/Warsaw";
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "pl_PL.UTF-8";
+    LC_IDENTIFICATION = "pl_PL.UTF-8";
+    LC_MEASUREMENT = "pl_PL.UTF-8";
+    LC_MONETARY = "pl_PL.UTF-8";
+    LC_NAME = "pl_PL.UTF-8";
+    LC_NUMERIC = "pl_PL.UTF-8";
+    LC_PAPER = "pl_PL.UTF-8";
+    LC_TELEPHONE = "pl_PL.UTF-8";
+    LC_TIME = "pl_PL.UTF-8";
+  };
+
+  console.keyMap = "pl2";
+  system.stateVersion = "25.05";
+
+}

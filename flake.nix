@@ -34,14 +34,24 @@
       darwin-dir = "/Users/fonil/nix-config";
 
       linuxSystem = "x86_64-linux";
+      armLinuxSystem = "aarch64-linux";
       darwinSystem = "aarch64-darwin";
 
+      # x86_64 Linux packages
       pkgs-very-unstable-linux = import inputs.nixpkgs-very-unstable {
         system = linuxSystem;
         config.allowUnfree = true;
       };
       nurpkgs-linux = nur.legacyPackages.${linuxSystem};
 
+      # aarch64 Linux packages (For the ARM VM)
+      pkgs-very-unstable-arm-linux = import inputs.nixpkgs-very-unstable {
+        system = armLinuxSystem;
+        config.allowUnfree = true;
+      };
+      nurpkgs-arm-linux = nur.legacyPackages.${armLinuxSystem};
+
+      # aarch64 Darwin packages
       pkgs-very-unstable-darwin = import inputs.nixpkgs-very-unstable {
         system = darwinSystem;
         config.allowUnfree = true;
@@ -76,6 +86,36 @@
           };
           modules = [
             ./hosts/lenovo/configuration.nix
+            inputs.home-manager.nixosModules.default
+            inputs.stylix.nixosModules.stylix
+          ];
+        };
+
+        vm-arm = nixpkgs.lib.nixosSystem {
+          system = armLinuxSystem;
+          specialArgs = {
+            inherit inputs flake-dir;
+            pkgs-very-unstable = pkgs-very-unstable-arm-linux;
+            nurpkgs = nurpkgs-arm-linux;
+            hostname = "vm-arm";
+          };
+          modules = [
+            ./hosts/vm-arm/configuration.nix
+            inputs.home-manager.nixosModules.default
+            inputs.stylix.nixosModules.stylix
+          ];
+        };
+
+        vm-x86 = nixpkgs.lib.nixosSystem {
+          system = linuxSystem;
+          specialArgs = {
+            inherit inputs flake-dir;
+            pkgs-very-unstable = pkgs-very-unstable-linux;
+            nurpkgs = nurpkgs-linux;
+            hostname = "vm-x86";
+          };
+          modules = [
+            ./hosts/vm-x86/configuration.nix
             inputs.home-manager.nixosModules.default
             inputs.stylix.nixosModules.stylix
           ];
