@@ -25,6 +25,9 @@
     '';
 
     interactiveShellInit = /* bash */ ''
+
+			eval "$(/opt/homebrew/bin/brew shellenv)"
+
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       eval "$(direnv hook zsh)"
 

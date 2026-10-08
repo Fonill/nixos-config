@@ -29,15 +29,27 @@
   homebrew = {
     enable = true;
     casks = [
+			"stats"
+			"helium-browser"
+      "ghostty"
+      "roblox"
+      "protonvpn"
+      "garmin-express"
+      "heroic"
+      "wine-stable"
+      "zwift"
+      "microsoft-teams"
+      "localsend"
+      "scroll-reverser"
       "utm"
       "whisky"
       "lm-studio"
       "caffeine"
-      "crossover"
       "bitwarden"
       "figma"
       "firefox"
       "google-chrome"
+      "brave-browser"
       "steam"
       "obs"
       "discord"
@@ -50,20 +62,22 @@
       "signal"
       "veracrypt"
       "zed"
+      "kitty"
     ];
   };
 
   environment.systemPackages = with pkgs; [
+    libwebp
+
     zoxide
     luarocks
     tree-sitter
 
     starship
-    kitty
+    # kitty
     neovim
     obsidian
     vimPlugins.nvim-treesitter.withAllGrammars
-    raycast
     yazi
 
     git
@@ -90,6 +104,7 @@
 
     ngrok
     gcc
+    gnat
     go
     python3
     nodejs
