@@ -130,6 +130,7 @@
     gopls
     air
     shfmt
+		asmfmt
     stylua
     rustfmt
     black

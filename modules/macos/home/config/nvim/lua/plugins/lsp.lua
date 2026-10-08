@@ -131,6 +131,9 @@ return {
 			-- CSS
 			cssls = {},
 
+			-- ADA
+			ada_ls = {},
+
 			-- QML
 			qmlls = {
 				cmd = { "qmlls", "-E" },

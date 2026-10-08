@@ -1,0 +1,10 @@
+return{
+	"raph-amiard/ada-nvim",
+	-- opts = {},
+	-- config = function()
+	-- 	require("ada").setup({
+	-- 		auto_install = true,
+	-- 		auto_start = true,
+	-- 	})
+	-- end
+}

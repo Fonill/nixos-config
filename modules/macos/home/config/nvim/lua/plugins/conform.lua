@@ -28,6 +28,8 @@ return {
 			nix = { "nixfmt" },
 			markdown = { "prettierd", stop_after_first = true },
 			sh = { "shfmt" },
+			masm = { "asmfmt" },
+			ada = { "gnat" },
 		},
 	},
 }
