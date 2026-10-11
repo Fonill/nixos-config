@@ -29,6 +29,8 @@ return {
 			markdown = { "prettierd", stop_after_first = true },
 			sh = { "shfmt" },
 			masm = { "asmfmt" },
+			asm = { "asmfmt" },
+			nasm = { "asmfmt" },
 			ada = { "gnat" },
 		},
 	},

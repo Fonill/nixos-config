@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, nixpkgs-very-stable, ... }:
 
 {
   imports = [
@@ -104,6 +104,7 @@
 
     ngrok
     gcc
+		# nixpkgs-very-stable.jwasm
     gnat
     go
     python3
@@ -115,6 +116,7 @@
 
     live-server
     htmx-lsp2
+		asm-lsp
     typescript-language-server
     bash-language-server
     clang-tools

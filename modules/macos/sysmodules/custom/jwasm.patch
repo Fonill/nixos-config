@@ -1,0 +1,54 @@
+From 88f5868c3aef9bd108d5893a302e84f3f3aa6332 Mon Sep 17 00:00:00 2001
+From: Skyblueborb <tomaszborbely0710@gmail.com>
+Date: Sun, 11 Oct 2026 19:30:43 +0200
+Subject: [PATCH] szpont na maka
+
+Signed-off-by: Skyblueborb <tomaszborbely0710@gmail.com>
+---
+ CLUnix.mak       | 9 ++++++++-
+ src/H/memalloc.h | 2 +-
+ 2 files changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/CLUnix.mak b/CLUnix.mak
+index df38d04..59530d6 100644
+--- a/CLUnix.mak
++++ b/CLUnix.mak
+@@ -24,6 +24,13 @@ TARGET1=$(OUTD)/$(name)
+ CC=clang
+ c_flags = -D__UNIX__ -Wno-parentheses -Wno-switch -Wno-enum-conversion $(extra_c_flags)
+ 
++# ld64 on macOS spells the map option -map, GNU ld uses -Map
++ifeq ($(shell uname -s),Darwin)
++MAPOPT = -Wl,-map,$(TARGET1).map
++else
++MAPOPT = -Wl,-Map,$(TARGET1).map
++endif
++
+ .SUFFIXES:
+ .SUFFIXES: .c .o
+ 
+@@ -38,7 +45,7 @@ $(OUTD):
+ 	mkdir -p $(OUTD)
+ 
+ $(OUTD)/$(name) : $(OUTD)/main.o $(proj_obj)
+-	$(CC) $(OUTD)/main.o $(proj_obj) -o $@ -Wl,-Map,$(TARGET1).map
++	$(CC) $(OUTD)/main.o $(proj_obj) -o $@ $(MAPOPT)
+ 
+ $(OUTD)/msgtext.o: src/msgtext.c src/H/msgdef.h
+ 	$(CC) -c $(inc_dirs) $(c_flags) -o $(OUTD)/msgtext.o src/msgtext.c
+diff --git a/src/H/memalloc.h b/src/H/memalloc.h
+index b8c74fb..741d9e1 100644
+--- a/src/H/memalloc.h
++++ b/src/H/memalloc.h
+@@ -48,7 +48,7 @@ extern void MemFree( void *ptr );
+ #elif defined(__GNUC__) || defined(__TINYC__)
+ 
+ #define myalloca  alloca
+-#ifndef __FreeBSD__  /* added v2.08 */
++#if !defined(__FreeBSD__) && !defined(__APPLE__)  /* added v2.08; __APPLE__ has no malloc.h */
+ #include <malloc.h>  /* added v2.07 */
+ #endif
+ 
+-- 
+2.54.0 (Apple Git-157)
+

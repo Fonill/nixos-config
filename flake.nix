@@ -23,12 +23,18 @@
     };
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-very-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
     nixpkgs-very-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
   outputs =
-    { nixpkgs, nur, nix-darwin, ... }@inputs:
+    {
+      nixpkgs,
+      nur,
+      nix-darwin,
+      ...
+    }@inputs:
     let
       flake-dir = "/etc/nixos";
       darwin-dir = "/Users/fonil/nix-config";
@@ -57,6 +63,11 @@
         config.allowUnfree = true;
       };
       nurpkgs-darwin = nur.legacyPackages.${darwinSystem};
+
+      nixpkgs-very-stable-darwin = import inputs.nixpkgs-very-stable {
+        system = darwinSystem;
+        config.allowUnfree = true;
+      };
 
     in
     {
@@ -130,6 +141,7 @@
             inherit inputs darwin-dir;
             pkgs-very-unstable = pkgs-very-unstable-darwin;
             nurpkgs = nurpkgs-darwin;
+            nixpkgs-very-stable = nixpkgs-very-stable-darwin;
             hostname = "nixbook";
           };
           modules = [

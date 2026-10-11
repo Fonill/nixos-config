@@ -134,6 +134,9 @@ return {
 			-- ADA
 			ada_ls = {},
 
+			-- ASSEMBLEY
+			asm_lsp = {},
+
 			-- QML
 			qmlls = {
 				cmd = { "qmlls", "-E" },
