@@ -29,8 +29,8 @@
   homebrew = {
     enable = true;
     casks = [
-			"stats"
-			"helium-browser"
+      "stats"
+      "helium-browser"
       "ghostty"
       "roblox"
       "protonvpn"
@@ -63,6 +63,7 @@
       "veracrypt"
       "zed"
       "kitty"
+			"zulu@8"
     ];
   };
 
@@ -95,8 +96,12 @@
     cmatrix
     speedtest-cli
     opencode
-    dragon-drop
+    # dragon-drop
     ripgrep
+
+    #spzonty
+    claude-code
+    antigravity
 
     hashcat
     hashcat-utils
@@ -104,7 +109,7 @@
 
     ngrok
     gcc
-		# nixpkgs-very-stable.jwasm
+    # nixpkgs-very-stable.jwasm
     gnat
     go
     python3
@@ -116,8 +121,8 @@
 
     live-server
     htmx-lsp2
-		asm-lsp
-    typescript-language-server
+    asm-lsp
+    # typescript-language-server
     bash-language-server
     clang-tools
     superhtml
@@ -132,7 +137,7 @@
     gopls
     air
     shfmt
-		asmfmt
+    asmfmt
     stylua
     rustfmt
     black
