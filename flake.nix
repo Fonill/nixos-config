@@ -23,6 +23,7 @@
     };
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-very-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
     nixpkgs-very-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -43,26 +44,48 @@
       armLinuxSystem = "aarch64-linux";
       darwinSystem = "aarch64-darwin";
 
-      # x86_64 Linux packages
       pkgs-very-unstable-linux = import inputs.nixpkgs-very-unstable {
         system = linuxSystem;
         config.allowUnfree = true;
       };
       nurpkgs-linux = nur.legacyPackages.${linuxSystem};
 
-      # aarch64 Linux packages (For the ARM VM)
+      nixpkgs-stable-linux = import inputs.nixpkgs-stable {
+        system = linuxSystem;
+        config.allowUnfree = true;
+      };
+
+      nixpkgs-very-stable-linux = import inputs.nixpkgs-very-stable {
+        system = linuxSystem;
+        config.allowUnfree = true;
+      };
+
       pkgs-very-unstable-arm-linux = import inputs.nixpkgs-very-unstable {
         system = armLinuxSystem;
         config.allowUnfree = true;
       };
       nurpkgs-arm-linux = nur.legacyPackages.${armLinuxSystem};
 
-      # aarch64 Darwin packages
+      nixpkgs-stable-arm-linux = import inputs.nixpkgs-stable {
+        system = armLinuxSystem;
+        config.allowUnfree = true;
+      };
+
+      nixpkgs-very-stable-arm-linux = import inputs.nixpkgs-very-stable {
+        system = armLinuxSystem;
+        config.allowUnfree = true;
+      };
+
       pkgs-very-unstable-darwin = import inputs.nixpkgs-very-unstable {
         system = darwinSystem;
         config.allowUnfree = true;
       };
       nurpkgs-darwin = nur.legacyPackages.${darwinSystem};
+
+      nixpkgs-stable-darwin = import inputs.nixpkgs-stable {
+        system = darwinSystem;
+        config.allowUnfree = true;
+      };
 
       nixpkgs-very-stable-darwin = import inputs.nixpkgs-very-stable {
         system = darwinSystem;
@@ -78,6 +101,8 @@
             inherit inputs flake-dir;
             pkgs-very-unstable = pkgs-very-unstable-linux;
             nurpkgs = nurpkgs-linux;
+            nixpkgs-stable = nixpkgs-stable-linux;
+            nixpkgs-very-stable = nixpkgs-very-stable-linux;
             hostname = "acer";
           };
           modules = [
@@ -93,6 +118,8 @@
             inherit inputs flake-dir;
             pkgs-very-unstable = pkgs-very-unstable-linux;
             nurpkgs = nurpkgs-linux;
+            nixpkgs-stable = nixpkgs-stable-linux;
+            nixpkgs-very-stable = nixpkgs-very-stable-linux;
             hostname = "lenovo";
           };
           modules = [
@@ -108,6 +135,8 @@
             inherit inputs flake-dir;
             pkgs-very-unstable = pkgs-very-unstable-arm-linux;
             nurpkgs = nurpkgs-arm-linux;
+            nixpkgs-stable = nixpkgs-stable-arm-linux;
+            nixpkgs-very-stable = nixpkgs-very-stable-arm-linux;
             hostname = "vm-arm";
           };
           modules = [
@@ -123,6 +152,8 @@
             inherit inputs flake-dir;
             pkgs-very-unstable = pkgs-very-unstable-linux;
             nurpkgs = nurpkgs-linux;
+            nixpkgs-stable = nixpkgs-stable-linux;
+            nixpkgs-very-stable = nixpkgs-very-stable-linux;
             hostname = "vm-x86";
           };
           modules = [
@@ -141,6 +172,7 @@
             inherit inputs darwin-dir;
             pkgs-very-unstable = pkgs-very-unstable-darwin;
             nurpkgs = nurpkgs-darwin;
+            nixpkgs-stable = nixpkgs-stable-darwin;
             nixpkgs-very-stable = nixpkgs-very-stable-darwin;
             hostname = "nixbook";
           };

@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs-very-stable, ... }:
+{ pkgs, nixpkgs-very-stable, nixpkgs-stable, ... }:
 
 {
   imports = [
@@ -29,7 +29,10 @@
   homebrew = {
     enable = true;
     casks = [
-      "stats"
+			"vorssaint"
+			"raycast"
+			"sigil"
+      # "stats"
       "helium-browser"
       "ghostty"
       "roblox"
@@ -40,11 +43,11 @@
       "zwift"
       "microsoft-teams"
       "localsend"
-      "scroll-reverser"
+      # "scroll-reverser"
       "utm"
       "whisky"
       "lm-studio"
-      "caffeine"
+      # "caffeine"
       "bitwarden"
       "figma"
       "firefox"
@@ -101,7 +104,7 @@
 
     #spzonty
     claude-code
-    antigravity
+    antigravity-ide
 
     hashcat
     hashcat-utils
@@ -121,7 +124,7 @@
 
     live-server
     htmx-lsp2
-    asm-lsp
+    nixpkgs-stable.asm-lsp
     # typescript-language-server
     bash-language-server
     clang-tools
